@@ -58,6 +58,30 @@
 			position: static;		// Boy, it took me long time to figure this out.
 		}
 	}	
+	
+
+	// Button style
+	// Usage: include the mixin and define base color. I highly recommend you to customize these styles.
+
+	.button(@basecolor: #eee){
+			.rounded(3px);
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			.gradient(@basecolor, darken(@basecolor, 10%));
+			.sans-serif(bold);
+			text-align: center;
+			text-decoration: none;
+			padding: 0.3em 0.5em;
+
+		&:hover{
+
+		}
+
+		&:active{
+			.transition(none);
+			top: auto; outline: none !important;
+		}
+	}
 
 
   // Border Radius
@@ -122,6 +146,7 @@
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
     background-image: -moz-linear-gradient(@startColor, @endColor);
   }
+
   .three-color-gradient(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
     background-color: @endColor;
     background-repeat: no-repeat;
