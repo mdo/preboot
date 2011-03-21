@@ -27,7 +27,7 @@
   Mixins
 	-------------------------------------------------- */
 	
-  // Clearfix for use in Less files
+    // Clearfix for use in Less files
 
 	.clearfix{
 		&:after{
@@ -42,6 +42,23 @@
 		* html & {height: 1%;}
 		& {display: block;}
 	}
+	
+  	
+	// CSS3 columns.
+	
+	@mixin columns(@count, @gap: 1.5em){
+		-webkit-column-count: @count;
+		-webkit-column-gap: @gap;
+		-moz-column-count: @count; 
+		-moz-column-gap: @gap;
+		column-count: @count; 
+		column-gap: @gap;
+
+		& > * {
+			position: static;		// Boy, it took me long time to figure this out.
+		}
+	}	
+
 
   // Border Radius
   .rounded(@radius: 5px) {
