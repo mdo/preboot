@@ -26,6 +26,22 @@
 /*--------------------------------------------------
   Mixins
 	-------------------------------------------------- */
+	
+  // Clearfix for use in Less files
+
+	.clearfix{
+		&:after{
+			visibility: hidden;
+	     	display: block;
+		    font-size: 0;
+	     	content: " ";
+	     	clear: both;
+	     	height: 0;	
+		}
+		& {display: inline-block;}
+		* html & {height: 1%;}
+		& {display: block;}
+	}
 
   // Border Radius
   .rounded(@radius: 5px) {
