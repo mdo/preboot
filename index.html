@@ -50,6 +50,15 @@
   -moz-box-shadow: @shadow;
   box-shadow: @shadow;
 }</pre>
+
+      <h3>Gradients</h3>
+      <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors.</p>
+<pre>.gradient(#333,#000);
+.gradient(@blue,@red);</pre>
+      <p>Two colors not enough? Go hog wild and add another color into the mix with a .three-color-gradient. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color. Donezo.</p>
+<pre>.three-color-gradient(#777,#333,.25,#000);
+.three-color-gradient(@blue,@red,@purple);</pre>
+      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.three-color-gradient</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
       
       <h3>Transitions</h3>
       <p>Elegantly transition elements in style with a single rule.</p>

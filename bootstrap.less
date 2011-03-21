@@ -84,9 +84,14 @@
   
   // Gradients
   .gradient(@startColor: #555, @endColor: #333) {
+    background-color: @endColor;
     background-repeat: no-repeat;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
     background-image: -moz-linear-gradient(@startColor, @endColor);
   }
-
-
+  .three-color-gradient(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
+    background-color: @endColor;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+    background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+  }
