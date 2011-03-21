@@ -86,13 +86,14 @@ pre {
   padding: 20px;
   color: #fff;
   .rounded(6px);
+  white-space: pre-wrap;
 }
 
 // Scaffolding
 header,
 section,
 footer {
-  width: 600px;
+  width: 640px;
   margin: 0 auto;
   display: block;
 }
@@ -149,4 +150,24 @@ a.button {
       background-position: 0 -15px;
     }
   }
+}
+
+// Grid example
+@grid_columns: 11;
+@grid_column_width: 40px;
+@grid_gutter_width: 20px;
+div.grid {
+  .container;
+  background-color: rgba(0,0,0,.25);
+  height: 200px;
+  margin-bottom: 20px;
+  div {
+    background-color: rgba(0,0,0,.25);
+    height: 200px;
+    text-align: center;
+    .sans-serif(normal,12px,200px);
+  }
+  div.span1 { .columns(1); }
+  div.span2 { .columns(2); }
+  div.span4 { .columns(4); }
 }

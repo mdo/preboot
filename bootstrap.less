@@ -95,3 +95,21 @@
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
   }
+  
+  // Grid System
+  @grid_columns: 16;
+  @grid_column_width: 40px;
+  @grid_gutter_width: 20px;
+  .container {
+    width: (@grid_columns * @grid_column_width) + ((@grid_columns - 1) * @grid_gutter_width);
+    overflow: hidden;
+  }
+  .columns(@column_span: 1) {
+    display: inline;
+    float: left;
+    width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
+    margin-left: @grid_gutter_width;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
