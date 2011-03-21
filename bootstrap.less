@@ -46,7 +46,7 @@
   	
 	// CSS3 columns.
 	
-	@mixin columns(@count, @gap: 1.5em){
+	.columns(@count, @gap: 1.5em){
 		-webkit-column-count: @count;
 		-webkit-column-gap: @gap;
 		-moz-column-count: @count; 
@@ -127,4 +127,14 @@
     background-repeat: no-repeat;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+  }
+
+
+
+  // For links or buttons with background-image applied, and you want it to change on hover:
+
+  .hover(@dir: bottom){
+	&:hover{
+		background-position-y: @dir;	
+	}
   }
