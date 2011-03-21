@@ -1,0 +1,151 @@
+// Clearize w/ adapted CSS Reset by Eric Meyer
+html, body { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; text-align: left; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; }
+
+// Bootstrap it!
+@import "bootstrap.less";
+
+// Nice bod
+html, body {
+  background-color: darken(saturate(@purple, 5), 10);
+}
+body {
+  background-attachment: fixed;
+  .gradient(darken(saturate(@purple, 5), 10), @blue);
+  padding: 60px 0;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  .box-shadow(inset 0 50px 200px rgba(0,0,0,.2));
+}
+body, p, li {
+  .sans-serif(normal,15px,20px);
+}
+
+// Bangin' links
+@link-color: #fff;
+a, a:visited {
+  font-weight: bold;
+  color: @link-color;
+  text-decoration: none;
+  .transition(all linear .2s);
+  &:hover {
+    color: @link-color;
+    text-decoration: underline;
+    text-shadow: 0 0 10px rgba(255,255,255,.75);
+  }
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 6px;
+}
+h4 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+p {
+  margin-bottom: 20px;
+}
+ol {
+  list-style: decimal;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+// Code!
+code, pre {
+  background-color: rgba(0,0,0,.3);
+  .gradient(rgba(0,0,0,.15), rgba(0,0,0,0));
+  .monospace;
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
+  @shadow: inset 0 1px 3px rgba(0,0,0,.25), 0 1px 0 rgba(255,255,255,.25);
+  .box-shadow(@shadow);
+}
+code {
+  padding: 3px 6px;
+  .rounded(3px);
+}
+pre {
+  margin: 20px 0;
+  padding: 20px;
+  color: #fff;
+  .rounded(6px);
+}
+
+// Scaffolding
+header,
+section,
+footer {
+  min-width: 400px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+header,
+section {
+  padding-bottom: 40px;
+  margin-bottom: 50px;
+  @shadow: inset 0 -1px 0 rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
+  .box-shadow(@shadow);
+}
+header {
+  h2 {
+    font-weight: 200;
+    line-height: 35px;
+  }
+}
+section {
+  
+}
+footer {
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  p {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 13px;
+    span {
+      opacity: .5;
+    }
+  }
+}
+
+// Buttons
+a.button {
+  display: inline-block;
+  background-color: #f5f5f5;
+  .gradient(#f5f5f5,#ddd);
+  padding: 9px 15px 10px;
+  @shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.25);
+  .box-shadow(@shadow);
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  .rounded(6px);
+  color: @gray;
+  line-height: 20px;
+  &:hover {
+    background-position: 0 -15px;
+  }
+  &.purple {
+    background-color: darken(saturate(@purple, 5), 10);
+    .gradient(@purple, darken(saturate(@purple, 5), 10));
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,.4);
+    &:hover {
+      background-position: 0 -15px;
+    }
+  }
+}

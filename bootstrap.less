@@ -1,0 +1,92 @@
+/*--------------------------------------------------
+  Bootstrap.less v1
+  --------------------------------------------------
+  Colors
+	-------------------------------------------------- */
+
+  // Links
+  @link-color: #8b59c2;
+  @link-hover-color: darken(@link-color, 10);
+
+  // Grays
+  @gray-light: #777;
+  @gray: #555;
+  @gray-dark: #333;
+
+  // Accent Colors
+  @blue: #00b3ee;
+  @green: #46a546;
+  @red: #9d261d;
+  @yellow: #ffc40d;
+  @orange: #f89406;
+  @pink: #c3325f;
+  @purple: #7a43b6;
+  
+  
+/*--------------------------------------------------
+  Mixins
+	-------------------------------------------------- */
+
+  // Border Radius
+  .rounded(@radius: 5px) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+  }
+  .border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+  	-moz-border-top-left-radius: @topleft;
+  	-moz-border-top-right-radius: @topright;
+  	-moz-border-bottom-right-radius: @bottomright;
+  	-moz-border-bottom-left-radius: @bottomleft;
+  	-webkit-border-top-left-radius: @topleft;
+  	-webkit-border-top-right-radius: @topright;
+  	-webkit-border-bottom-right-radius: @bottomright;
+  	-webkit-border-bottom-left-radius: @bottomleft;
+  	border-top-left-radius: @topleft;
+  	border-top-right-radius: @topright;
+  	border-bottom-right-radius: @bottomright;
+  	border-bottom-left-radius: @bottomleft;
+  }
+  
+  // Drop shadows
+  .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    box-shadow: @shadow;
+  }
+  
+  // Transitions
+  .transition(@transition) {
+  	-webkit-transition: @transition;
+  	-moz-transition: @transition;
+  	transition: @transition;
+  }
+
+  // Font Stacks
+  .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
+  .serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+    font-family: "Georgia", Times New Roman, Times, sans-serif;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
+  .monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
+    font-family: "Monaco", Courier New, monospace;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
+  
+  // Gradients
+  .gradient(@startColor: #555, @endColor: #333) {
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
+    background-image: -moz-linear-gradient(@startColor, @endColor);
+  }
+
+
