@@ -14,7 +14,7 @@ html, body {
 }
 body {
   background-attachment: fixed;
-  .gradient(darken(saturate(@purple, 5), 10), @blue);
+  #gradient > .vertical(darken(saturate(@purple, 5), 10), @blue);
   padding: 60px 0;
   color: #fff;
   text-rendering: optimizeLegibility;
@@ -78,7 +78,7 @@ ul {
 
 // Code!
 code, pre {
-  .gradient(rgba(0,0,0,.15), rgba(0,0,0,0));
+  #gradient > .vertical(rgba(0,0,0,.15), rgba(0,0,0,0));
   background-color: rgba(0,0,0,.3);
   .monospace;
   text-shadow: 0 1px 1px rgba(0,0,0,.25);
@@ -87,13 +87,13 @@ code, pre {
 }
 code {
   padding: 3px 6px;
-  .rounded(3px);
+  .border-radius(3px);
 }
 pre {
   margin: 20px 0;
   padding: 20px;
   color: #fff;
-  .rounded(6px);
+  .border-radius(6px);
   white-space: pre-wrap;
 }
 
