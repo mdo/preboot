@@ -29,23 +29,17 @@
 
   // Border Radius
   .rounded(@radius: 5px) {
-    -moz-border-radius: @radius;
     -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
     border-radius: @radius;
   }
   .border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
-  	-moz-border-radius-topleft: @topleft;
-  	-moz-border-radius-topright: @topright;
-  	-moz-border-radius-bottomright: @bottomright;
-  	-moz-border-radius-bottomleft: @bottomleft;
   	-webkit-border-top-left-radius: @topleft;
   	-webkit-border-top-right-radius: @topright;
   	-webkit-border-bottom-right-radius: @bottomright;
   	-webkit-border-bottom-left-radius: @bottomleft;
-  	border-top-left-radius: @topleft;
-  	border-top-right-radius: @topright;
-  	border-bottom-right-radius: @bottomright;
-  	border-bottom-left-radius: @bottomleft;
+  	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
+  	border-radius: @topleft @topright @bottomright @bottomleft;
   }
   
   // Drop shadows
