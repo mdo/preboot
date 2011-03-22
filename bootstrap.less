@@ -9,9 +9,12 @@
   @link-hover-color: darken(@link-color, 10);
 
   // Grays
+  @white: #fff;
+  @gray-lighter: #ccc;
   @gray-light: #777;
   @gray: #555;
   @gray-dark: #333;
+  @black: #000;
 
   // Accent Colors
   @blue: #00b3ee;
@@ -27,35 +30,18 @@
   Mixins
 	-------------------------------------------------- */
 
-  // Border Radius
-  .rounded(@radius: 5px) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    border-radius: @radius;
-  }
-  .border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
-  	-webkit-border-top-left-radius: @topleft;
-  	-webkit-border-top-right-radius: @topright;
-  	-webkit-border-bottom-right-radius: @bottomright;
-  	-webkit-border-bottom-left-radius: @bottomleft;
-  	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
-  	border-radius: @topleft @topright @bottomright @bottomleft;
-  }
-  
-  // Drop shadows
-  .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
-    -webkit-box-shadow: @shadow;
-    -moz-box-shadow: @shadow;
-    box-shadow: @shadow;
-  }
-  
-  // Transitions
-  .transition(@transition) {
-  	-webkit-transition: @transition;
-  	-moz-transition: @transition;
-  	transition: @transition;
-  }
-
+  // Clearfix for clearing floats like a boss
+	.clearfix {
+    zoom: 1;
+		&:after {
+      display: block;
+      visibility: hidden;
+      height: 0;
+      clear: both;
+      content: ".";
+		}
+	}
+	
   // Font Stacks
   .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -75,6 +61,44 @@
     font-weight: @weight;
     line-height: @lineheight;
   }
+
+  // Grid System
+  @grid_columns: 16;
+  @grid_column_width: 40px;
+  @grid_gutter_width: 20px;
+  .container {
+    width: (@grid_column_width * @grid_columns) + (@grid_gutter_width * (@grid_columns - 1));
+    overflow: hidden;
+  }
+  .columns(@column_span: 1) {
+    display: inline;
+    float: left;
+    width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
+    margin-left: @grid_gutter_width;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+    
+  // Border Radius
+  .border-radius(@radius: 5px) {
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+  }
+  
+  // Drop shadows
+  .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    box-shadow: @shadow;
+  }
+  
+  // Transitions
+  .transition(@transition) {
+  	-webkit-transition: @transition;
+  	-moz-transition: @transition;
+  	transition: @transition;
+  }
   
   // Gradients
   .gradient(@startColor: #555, @endColor: #333) {
@@ -90,24 +114,16 @@
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
   }
   
-  // Grid System
-  @grid_columns: 16;
-  @grid_column_width: 40px;
-  @grid_gutter_width: 20px;
-  .container {
-    width: (@grid_columns * @grid_column_width) + ((@grid_columns - 1) * @grid_gutter_width);
-    overflow: hidden;
-  }
-  .columns(@column_span: 1) {
-    display: inline;
-    float: left;
-    width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
-    margin-left: @grid_gutter_width;
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-    
+  // CSS3 Content Columns
+  .content-columns(@column_count, @column_gap: 20px) {
+		-webkit-column-count: @count;
+		-webkit-column-gap: @gap;
+		-moz-column-count: @count; 
+		-moz-column-gap: @gap;
+		column-count: @count; 
+		column-gap: @gap;
+	}
+  
   // Buttons
   .button(@color: #f5f5f5, @text_color: #333, @text_shadow: 0 1px 1px rgba(255,255,255,.75), @font_size: 13px, @padding: 9px 15px 10px, @rounded: 6px) {
     display: inline-block;
@@ -124,4 +140,15 @@
       color: @text_color;
       text-decoration: none;
     }
+  }
+  
+  // Add an alphatransparency value to any background or border color (via Elyse Holladay)
+  #translucent {
+    .background(@color: @white, @alpha: 1) {
+      background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  	}
+  	.border(@color: @white, @alpha: 1) {
+  		border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  		background-clip: padding-box;
+		}
   }
