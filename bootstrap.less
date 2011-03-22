@@ -68,7 +68,7 @@
   @grid_gutter_width: 20px;
   .container {
     width: (@grid_column_width * @grid_columns) + (@grid_gutter_width * (@grid_columns - 1));
-    overflow: hidden;
+    .clearfix;
   }
   .columns(@column_span: 1) {
     display: inline;
@@ -105,16 +105,24 @@
     .horizontal(@startColor: #555, @endColor: #333) {
       background-color: @endColor;
       background-repeat: no-repeat;
-      background-image: -webkit-gradient(linear, right top, left top, from(@startColor), to(@endColor));
+      background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
       background-image: -webkit-linear-gradient(right center, @startColor, @endColor);
       background-image: -moz-linear-gradient(right center, @startColor, @endColor);
+      background-image: -o-linear-gradient(left,  @startColor,  @endColor);
+      background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+      filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=1)",@startColor,@endColor));
+      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1))",@startColor,@endColor);
     }
     .vertical(@startColor: #555, @endColor: #333) {
       background-color: @endColor;
       background-repeat: no-repeat;
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
+      background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
       background-image: -webkit-linear-gradient(@startColor, @endColor);
       background-image: -moz-linear-gradient(@startColor, @endColor);
+      background-image: -o-linear-gradient(top,  @startColor,  @endColor);
+      background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+      filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@startColor,@endColor));
+      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))",@startColor,@endColor);
     }
     .vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
       background-color: @endColor;

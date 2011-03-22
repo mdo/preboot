@@ -41,6 +41,8 @@
         <li><a href="#box-shadow">Box Shadows</a></li>
         <li><a href="#gradients">Gradients</a></li>
         <li><a href="#transitions">Transitions</a></li>
+        <li><a href="#clearfix">Clearfix</a></li>
+        <li><a href="#translucency">Translucency</a></li>
         <li><a href="#font-stacks">Font Stacks</a></li>
         <li><a href="#buttons">Buttons</a></li>
         <li><a href="#grid">Grid System</a></li>
@@ -72,13 +74,13 @@
 }</pre>
 
       <h3 id="gradients">Gradients</h3>
-      <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors.</p>
+      <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors. You can use vertical or horizontal gradients with the following lines of code:</p>
 <pre>#gradient > .vertical(#333,#000);
 #gradient > .horizontal(@blue,@red);</pre>
       <p>Two colors not enough? Go hog wild and add another color into the mix with a .three-color-gradient. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color. Donezo.</p>
 <pre>#gradient > .vertical-three-colors(#777,#333,.25,#000);
 #gradient > .vertical-three-colors(@blue,@red,@purple);</pre>
-      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.three-color-gradient</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
+      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
       
       <h3 id="transitions">Transitions</h3>
       <p>Elegantly transition elements in style with a single rule.</p>
@@ -88,6 +90,23 @@
   transition: @transition;
 }</pre>
       <p>Example transitions could include fading input elements on focus (instead of the default <code>outline</code>), animating logos on hover, and even animating link hovers.</p>
+      
+      <h3 id="clearfix">Simple Clearfix</h3>
+      <p>Forget adding <code>.clearfix</code> to all your divs and just add the mixin where appropriate.</p>
+<pre>.container {
+  .clearfix;
+}
+</pre>
+      
+      <h3 id="translucency">Make Any Color Translucent</h3>
+      <p>While RGBA is great, LESS only has a color conversion tool that changes any color to HSL. By doing so, it allows us to add an extra alpha layer (just like RGB to RGBA). Just call the mixin, select a color, and add the alpha transparency (a decimal value from 0 to 1).</p>
+<pre>.container {
+  #translucent > .background(@blue, 0.5);
+  div {
+    #translucent > .background(#900, 0.5);
+  }
+}
+</pre>
       
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
