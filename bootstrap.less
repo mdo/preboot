@@ -2,7 +2,7 @@
   Bootstrap.less v1
   --------------------------------------------------
   Colors
-	-------------------------------------------------- */
+-------------------------------------------------- */
 
   // Links
   @link-color: #8b59c2;
@@ -28,18 +28,18 @@
   
 /*--------------------------------------------------
   Mixins
-	-------------------------------------------------- */
+-------------------------------------------------- */
 
   // Clearfix for clearing floats like a boss
 	.clearfix {
-    zoom: 1;
+                zoom: 1;
 		&:after {
-      display: block;
-      visibility: hidden;
-      height: 0;
-      clear: both;
-      content: ".";
-		}
+                 display: block;
+                 visibility: hidden;
+                 height: 0;
+                 clear: both;
+                 content: ".";
+	      }
 	}
 	
   // Font Stacks
@@ -79,11 +79,18 @@
       margin-left: 0;
     }
   }
-    
+  //Background-clip for the spill of the backgrounds
+  .background-clip{
+ -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
   // Border Radius
   .border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
+    .background-clip;
   }
   
   // Drop shadows
