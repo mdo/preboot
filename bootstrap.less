@@ -16,6 +16,30 @@
   @gray-lighter: lighten(@black, 90%);
   @white: #fff;
 
+  // Auto Color Scheme
+
+  /* Color Base for the Scheme */
+  @base-color: #1f4a8f;
+
+  /* Complement Color */
+  @complement: spin(@base-color, 180);
+
+  /* Split Complements */
+  @split1: spin(@base-color, 158);
+  @split2: spin(@base-color, -158);
+
+  /* Triads Colors */
+  @triad1: spin(@base-color, 135);
+  @triad2: spin(@base-color, -135);
+
+  /* Tetra Colors */
+  @tetra1: spin(@base-color, 90);
+  @tetra2: spin(@base-color, -90);
+
+  /* Analogs Colors */
+  @analog1: spin(@base-color, 22);
+  @analog2: spin(@base-color, -22);
+
   // Accent Colors
   @blue: #00b3ee;
   @green: #46a546;
@@ -24,7 +48,6 @@
   @orange: #f89406;
   @pink: #c3325f;
   @purple: #7a43b6;
-  
   
 /*--------------------------------------------------
   Mixins
@@ -79,12 +102,14 @@
       margin-left: 0;
     }
   }
+
   //Background-clip for the spill of the backgrounds
   .background-clip{
- -moz-background-clip: padding;
-  -webkit-background-clip: padding;
-  background-clip: padding-box;
-}
+   -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+  }
+
   // Border Radius
   .border-radius(@radius: 5px) {
     -webkit-border-radius: @radius;
