@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- // Less.js at the ready! -->
     <link rel="stylesheet/less" type="text/css" media="all" href="style.less" />
-    <script type="text/javascript" src="less-1.0.41.min.js"></script>
+    <script type="text/javascript" src="less-1.1.0.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       less.env = "development";
       less.watch();
@@ -116,19 +116,19 @@
       
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
-<pre>.sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+<pre>#font > .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: @size;
   font-weight: @weight;
   line-height: @lineheight;
 }
-.serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+#font > .serif(@weight: normal, @size: 14px, @lineheight: 20px) {
   font-family: "Georgia", Times New Roman, Times, sans-serif;
   font-size: @size;
   font-weight: @weight;
   line-height: @lineheight;
 }
-.monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
+#font > .monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
   font-family: "Monaco", Courier New, monospace;
   font-size: @size;
   font-weight: @weight;
@@ -144,6 +144,7 @@
   padding: @padding;
   text-shadow: @text_shadow;
   color: @text_color;
+  font-size: @font_size;
   line-height: 20px;
   .rounded(6px);
   @shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.25);
