@@ -1,29 +1,42 @@
-/*--------------------------------------------------
-  Bootstrap.less v1
-  --------------------------------------------------
-  Colors
-	-------------------------------------------------- */
+/*
+  Bootstrap v1.1
+  Variables and mixins to bootstrap any new web development project.
+*/
 
-  // Links
-  @link-color: #8b59c2;
-  @link-hover-color: darken(@link-color, 10);
 
-  // Grays
-  @white: #fff;
-  @gray-lighter: #ccc;
-  @gray-light: #777;
-  @gray: #555;
-  @gray-dark: #333;
-  @black: #000;
+/* Variables
+-------------------------------------------------- */
 
-  // Accent Colors
-  @blue: #00b3ee;
-  @green: #46a546;
-  @red: #9d261d;
-  @yellow: #ffc40d;
-  @orange: #f89406;
-  @pink: #c3325f;
-  @purple: #7a43b6;
+// Links
+@link-color:        #8b59c2;
+@link-hover-color:  darken(@link-color, 10);
+
+// Grays
+@white:             #fff;
+@gray-lighter:      #ccc;
+@gray-light:        #777;
+@gray:              #555;
+@gray-dark:         #333;
+@black:             #000;
+
+// Accent Colors
+@blue:              #08b5fb;
+@blue-dark:         #0069d6;
+@green:             #46a546;
+@red:               #9d261d;
+@yellow:            #ffc40d;
+@orange:            #f89406;
+@pink:              #c3325f;
+@purple:            #7a43b6;
+
+// Baseline grid
+@baseline:          20px;
+
+// Griditude
+@grid_columns:        16;
+@grid_column_width:   40px;
+@grid_gutter_width:   20px;
+@site_width:          (@grid_columns * @grid_column_width) + (@grid_gutter_width * (@grid_columns - 1));
   
   
 /*--------------------------------------------------
@@ -64,26 +77,23 @@
     }
   }
 
-  // Grid System
-  @grid_columns: 16;
-  @grid_column_width: 40px;
-  @grid_gutter_width: 20px;
-  .container {
-    width: (@grid_column_width * @grid_columns) + (@grid_gutter_width * (@grid_columns - 1));
-    .clearfix;
+// Grid System
+.container {
+  width: @site_width;
+  margin: 0 auto;
+}
+.columns(@column_span: 1) {
+  display: inline;
+  float: left;
+  width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
+  margin-left: @grid_gutter_width;
+  &:first-child {
+    margin-left: 0;
   }
-  .columns(@column_span: 1) {
-    display: inline;
-    float: left;
-    width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
-    margin-left: @grid_gutter_width;
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-  .indent-columns(@column_span: 1) {
-    margin-left: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
-  }
+}
+.offset(@column_offset: 1) {
+  margin-left: (@grid_column_width * @column_offset) + (@grid_gutter_width * (@column_offset - 1)) !important;
+}
     
   // Border Radius
   .border-radius(@radius: 5px) {

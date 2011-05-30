@@ -19,10 +19,10 @@ body {
   color: #fff;
   text-rendering: optimizeLegibility;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
-//  .box-shadow(inset 0 50px 200px rgba(0,0,0,.2)); I double dog dare you to turn this on if you're running Chrome 11.x
+  .box-shadow(inset 0 50px 200px rgba(0,0,0,.2));
 }
 body, p, li {
-  .sans-serif(normal,15px,20px);
+  #font > .sans-serif(normal,15px,20px);
 }
 
 // Bangin' links
@@ -79,7 +79,7 @@ ul {
 code, pre {
   #gradient > .vertical(rgba(0,0,0,.15), rgba(0,0,0,0));
   background-color: rgba(0,0,0,.3);
-  .monospace();
+  #font > .monospace();
   text-shadow: 0 1px 1px rgba(0,0,0,.25);
   @shadow: inset 0 1px 3px rgba(0,0,0,.25), 0 1px 0 rgba(255,255,255,.25);
   .box-shadow(@shadow);
@@ -160,7 +160,7 @@ div.grid {
       #translucent > .background(@black,.25);
       height: 200px;
       text-align: center;
-      .sans-serif(normal,12px,200px);
+      #font > .sans-serif(normal,12px,200px);
     }
   }
 }

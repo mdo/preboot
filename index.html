@@ -116,23 +116,25 @@
       
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
-<pre>#font > .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: @size;
-  font-weight: @weight;
-  line-height: @lineheight;
-}
-#font > .serif(@weight: normal, @size: 14px, @lineheight: 20px) {
-  font-family: "Georgia", Times New Roman, Times, sans-serif;
-  font-size: @size;
-  font-weight: @weight;
-  line-height: @lineheight;
-}
-#font > .monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
-  font-family: "Monaco", Courier New, monospace;
-  font-size: @size;
-  font-weight: @weight;
-  line-height: @lineheight;
+<pre>#font {
+  .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
+  .serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+    font-family: "Georgia", Times New Roman, Times, sans-serif;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
+  .monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
+    font-family: "Monaco", Courier New, monospace;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineheight;
+  }
 }</pre>
 
       <h3 id="buttons">Buttons</h3>
