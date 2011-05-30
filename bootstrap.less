@@ -171,16 +171,11 @@
   		background-clip: padding-box;
 		}
   }
-
   
-  .text-shadow(@shadow_color:#fff) {
-	text-shadow:0 1px 0 @shadow_color;
+  .text-shadow(@xoffset_yoffset_blur_color: 0 1px 0 #fff) {
+	text-shadow:@xoffset_yoffset_blur_color;
   }
   
-  .text-shadow-specific(@x, @y, @blur, @shadow_color:#fff) {
-	text-shadow:@x @y @blur @shadow_color;
-  }
-
   // Gradients
   #gradient {
     .horizontal(@startColor: #555, @endColor: #333) {
