@@ -5,10 +5,6 @@
     <!-- // Less.js at the ready! -->
     <link rel="stylesheet/less" type="text/css" media="all" href="style.less" />
     <script type="text/javascript" src="less-1.1.0.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      less.env = "development";
-      less.watch();
-    </script>
     <title>Bootstrap.less by Mark Otto</title>
     <!-- Google Webmaster Tools & Analytics -->
     <meta name="google-site-verification" content="i2l3RBLrWFm3JY5fXIug2_83I6muZwPlIF5e4j13-o8" />
@@ -117,43 +113,43 @@
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
 <pre>#font {
-  .sans-serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+  .sans-serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: @size;
     font-weight: @weight;
-    line-height: @lineheight;
+    line-height: @lineHeight;
   }
-  .serif(@weight: normal, @size: 14px, @lineheight: 20px) {
+  .serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
     font-family: "Georgia", Times New Roman, Times, sans-serif;
     font-size: @size;
     font-weight: @weight;
-    line-height: @lineheight;
+    line-height: @lineHeight;
   }
-  .monospace(@weight: normal, @size: 12px, @lineheight: 20px) {
+  .monospace(@weight: normal, @size: 12px, @lineHeight: 20px) {
     font-family: "Monaco", Courier New, monospace;
     font-size: @size;
     font-weight: @weight;
-    line-height: @lineheight;
+    line-height: @lineHeight;
   }
 }</pre>
 
       <h3 id="buttons">Buttons</h3>
       <p>Generate buttons of any color with a single mixin that provides ultimate control while still providing a consistent family of buttons. Set the base color, the text color, text shadow, font size, padding, and border radius. More controls coming soon (I hope).</p>
 <pre>// Buttons
-.button(@color: #f5f5f5, @text_color: #333, @text_shadow: 0 1px 1px rgba(255,255,255,.75), @font_size: 13px, @padding: 9px 15px 10px, @rounded: 6px) {
+.button(@color: #f5f5f5, @textColor: #333, @textShadow: 0 1px 1px rgba(255,255,255,.75), @fontSize: 13px, @padding: 9px 15px 10px, @rounded: 6px) {
   display: inline-block;
   .gradient(@color,darken(saturate(@color,10),10));
   padding: @padding;
-  text-shadow: @text_shadow;
-  color: @text_color;
-  font-size: @font_size;
+  text-shadow: @textShadow;
+  color: @textColor;
+  font-size: @fontSize;
   line-height: 20px;
   .rounded(6px);
   @shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.25);
   .box-shadow(@shadow);
   &:hover {
     background-position: 0 -15px;
-    color: @text_color;
+    color: @textColor;
     text-decoration: none;
   }
 }</pre>
@@ -183,27 +179,27 @@
       </div>
     <p>The <code>.container</code> and <code>.columns</code> mixins do all the code generation for you, meaning all you need to do is add the markup and call the mixins. Here's the LESS code that's needed to make it all happen, followed by the above example's code.</p>
 <pre>// Grid System
-@grid_columns: 16;
-@grid_column_width: 40px;
-@grid_gutter_width: 20px;
+@gridColumns: 16;
+@gridColumnWidth: 40px;
+@gridGutterWidth: 20px;
 .container {
-  width: (@grid_columns * @grid_column_width) + ((@grid_columns - 1) * @grid_gutter_width);
+  width: (@gridColumns * @gridColumnWidth) + ((@gridColumns - 1) * @gridGutterWidth);
   overflow: hidden;
 }
 .columns(@column-span: 1) {
   display: inline;
   float: left;
-  width: (@grid_column_width * @column_span) + (@grid_gutter_width * (@column_span - 1));
-  margin-left: @grid_gutter_width;
+  width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
+  margin-left: @gridGutterWidth;
   &:first-child {
     margin-left: 0;
   }
 }</pre>
     <p>And here's how you take that and create some sweet ass columns:</p>
 <pre>// Gimme a grid!
-@grid_columns: 11;
-@grid_column_width: 40px;
-@grid_gutter_width: 20px;
+@gridColumns: 11;
+@gridColumnWidth: 40px;
+@gridGutterWidth: 20px;
 div.grid {
   .container;
   div.span1 { .columns(1); }
@@ -218,13 +214,13 @@ div.grid {
       <h2 id="variables">Variables</h2>
       <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
 <pre>// Links
-@link-color: #8b59c2;
-@link-hover-color: darken(@link-color, 10);
+@linkColor: #8b59c2;
+@linkColorHover: darken(@linkColor, 10);
 
 // Grays
-@gray-light: #777;
+@grayLight: #777;
 @gray: #555;
-@gray-dark: #333;
+@grayDark: #333;
 
 // Accent Colors
 @blue: #00b3ee;
@@ -235,7 +231,7 @@ div.grid {
 @pink: #c3325f;
 @purple: #7a43b6;
 </pre>
-      <p>Note that the <code>@link-hover-color</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
+      <p>Note that the <code>@linkColorHover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
       <p>Also included are some great accent colors for just about every element you'll need when getting started.</p>
     </section>
      

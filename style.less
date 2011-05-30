@@ -26,14 +26,14 @@ body, p, li {
 }
 
 // Bangin' links
-@link-color: #fff;
+@linkColor: #fff;
 a, a:visited {
   font-weight: bold;
-  color: @link-color;
+  color: @linkColor;
   text-decoration: none;
   .transition(all linear .2s);
   &:hover {
-    color: @link-color;
+    color: @linkColor;
     text-decoration: underline;
     text-shadow: 0 0 10px rgba(255,255,255,.75);
   }
@@ -142,9 +142,9 @@ a.button {
 }
 
 // Grid example
-@grid_columns: 11;
-@grid_column_width: 40px;
-@grid_gutter_width: 20px;
+@gridColumns: 11;
+@gridColumnWidth: 40px;
+@gridGutterWidth: 20px;
 div.grid {
   .container;
   div.span1 { .columns(1); }
