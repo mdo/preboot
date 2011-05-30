@@ -2,19 +2,43 @@
   Bootstrap.less v1
   --------------------------------------------------
   Colors
-	-------------------------------------------------- */
+-------------------------------------------------- */
 
   // Links
   @link-color: #8b59c2;
   @link-hover-color: darken(@link-color, 10);
 
   // Grays
-  @white: #fff;
-  @gray-lighter: #ccc;
-  @gray-light: #777;
-  @gray: #555;
-  @gray-dark: #333;
   @black: #000;
+  @gray-dark: lighten(@black, 25%);
+  @gray: lighten(@black, 50%);
+  @gray-light: lighten(@black, 70%);
+  @gray-lighter: lighten(@black, 90%);
+  @white: #fff;
+
+  // Auto Color Scheme
+
+  /* Color Base for the Scheme */
+  @base-color: #1f4a8f;
+
+  /* Complement Color */
+  @complement: spin(@base-color, 180);
+
+  /* Split Complements */
+  @split1: spin(@base-color, 158);
+  @split2: spin(@base-color, -158);
+
+  /* Triads Colors */
+  @triad1: spin(@base-color, 135);
+  @triad2: spin(@base-color, -135);
+
+  /* Tetra Colors */
+  @tetra1: spin(@base-color, 90);
+  @tetra2: spin(@base-color, -90);
+
+  /* Analogs Colors */
+  @analog1: spin(@base-color, 22);
+  @analog2: spin(@base-color, -22);
 
   // Accent Colors
   @blue: #00b3ee;
@@ -25,21 +49,20 @@
   @pink: #c3325f;
   @purple: #7a43b6;
   
-  
 /*--------------------------------------------------
   Mixins
-	-------------------------------------------------- */
+-------------------------------------------------- */
 
   // Clearfix for clearing floats like a boss
 	.clearfix {
-    zoom: 1;
+                zoom: 1;
 		&:after {
-      display: block;
-      visibility: hidden;
-      height: 0;
-      clear: both;
-      content: ".";
-		}
+                 display: block;
+                 visibility: hidden;
+                 height: 0;
+                 clear: both;
+                 content: ".";
+	      }
 	}
 	
   // Font Stacks
@@ -79,11 +102,20 @@
       margin-left: 0;
     }
   }
-    
+
+  //Background-clip for the spill of the backgrounds
+  .background-clip{
+   -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+  }
+
   // Border Radius
   .border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
+    .background-clip;
   }
   
   // Drop shadows
