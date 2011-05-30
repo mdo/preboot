@@ -145,27 +145,43 @@
 
   // Gradients
   #gradient {
-    .horizontal(@startColor: #555, @endColor: #333) {
+    .horizontal (@startColor: #555, @endColor: #333, @img: "placeholder.png") {
       background-color: @endColor;
-      background-repeat: no-repeat;
-      background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
-      background-image: -webkit-linear-gradient(right center, @startColor, @endColor);
-      background-image: -moz-linear-gradient(right center, @startColor, @endColor);
-      background-image: -o-linear-gradient(left,  @startColor,  @endColor);
-      background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
-      filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=1)",@startColor,@endColor));
-      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1))",@startColor,@endColor);
+      background-image: url(@img); 
+      background-repeat: repeat-x;
+      background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor)); /* Konqueror */
+      background-image: -moz-linear-gradient(left, @startColor, @endColor); /* FF 3.6+ */  
+      background-image: -ms-linear-gradient(left, @startColor, @endColor); /* IE10 */  
+      background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */  
+      background-image: -webkit-linear-gradient(left, @startColor, @endColor); /* Safari 5.1+, Chrome 10+ */  
+      background-image: -o-linear-gradient(left, @startColor, @endColor); /* Opera 11.10 */  
+      filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); /* IE6 & IE7 */  
+      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor); /* IE8+ */  
+      background-image: linear-gradient(left, @startColor, @endColor); /* the standard */  
     }
-    .vertical(@startColor: #555, @endColor: #333) {
+    .vertical (@startColor: #555, @endColor: #333, @img: "placeholder.png") {
       background-color: @endColor;
-      background-repeat: no-repeat;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-      background-image: -webkit-linear-gradient(@startColor, @endColor);
-      background-image: -moz-linear-gradient(@startColor, @endColor);
-      background-image: -o-linear-gradient(top,  @startColor,  @endColor);
-      background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-      filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@startColor,@endColor));
-      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))",@startColor,@endColor);
+      background-image: url(@img); 
+      background-repeat: repeat-x;
+      background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Konqueror */
+      background-image: -moz-linear-gradient(@startColor, @endColor); /* FF 3.6+ */  
+      background-image: -ms-linear-gradient(@startColor, @endColor); /* IE10 */  
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */  
+      background-image: -webkit-linear-gradient(@startColor, @endColor); /* Safari 5.1+, Chrome 10+ */  
+      background-image: -o-linear-gradient(@startColor, @endColor); /* Opera 11.10 */  
+      filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); /* IE6 & IE7 */  
+      -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor); /* IE8+ */  
+      background-image: linear-gradient(@startColor, @endColor); /* the standard */  
+    }
+    .directional (@startColor: #555, @endColor: #333, @deg: 45deg, @img: "placeholder.png") {
+      background-color: @endColor;
+      background-image: url(@img); 
+      background-repeat: repeat-x;
+      background-image: -moz-linear-gradient(@deg, @startColor, @endColor); /* FF 3.6+ */  
+      background-image: -ms-linear-gradient(@deg, @startColor, @endColor); /* IE10 */
+      background-image: -webkit-linear-gradient(@deg, @startColor, @endColor); /* Safari 5.1+, Chrome 10+ */  
+      background-image: -o-linear-gradient(@deg, @startColor, @endColor); /* Opera 11.10 */
+      background-image: linear-gradient(@deg, @startColor, @endColor); /* the standard */
     }
     .vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 0.5, @endColor: #c3325f) {
       background-color: @endColor;
