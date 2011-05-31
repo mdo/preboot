@@ -26,14 +26,14 @@ body, p, li {
 }
 
 // Bangin' links
-@linkColor: #fff;
+@link-color: #fff;
 a, a:visited {
   font-weight: bold;
-  color: @linkColor;
+  color: @link-color;
   text-decoration: none;
   .transition(all linear .2s);
   &:hover {
-    color: @linkColor;
+    color: @link-color;
     text-decoration: underline;
     text-shadow: 0 0 10px rgba(255,255,255,.75);
   }
@@ -146,7 +146,7 @@ a.button {
 @gridColumnWidth: 40px;
 @gridGutterWidth: 20px;
 div.grid {
-  .container;
+  .container();
   div.span1 { .columns(1); }
   div.span2 { .columns(2); }
   div.span3 { .columns(3); }

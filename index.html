@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- // Less.js at the ready! -->
     <link rel="stylesheet/less" type="text/css" media="all" href="style.less" />
-    <script type="text/javascript" src="less-1.1.0.min.js"></script>
+    <script type="text/javascript" src="less-1.1.3.min.js"></script>
     <title>Bootstrap.less by Mark Otto</title>
     <!-- Google Webmaster Tools & Analytics -->
     <meta name="google-site-verification" content="i2l3RBLrWFm3JY5fXIug2_83I6muZwPlIF5e4j13-o8" />
@@ -214,22 +214,25 @@ div.grid {
       <h2 id="variables">Variables</h2>
       <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
 <pre>// Links
-@linkColor: #8b59c2;
-@linkColorHover: darken(@linkColor, 10);
+@linkColor:         #8b59c2;
+@linkColorHover:    darken(@linkColor, 10);
 
 // Grays
-@grayLight: #777;
-@gray: #555;
-@grayDark: #333;
+@white:             #fff;
+@grayLighter:       #ccc;
+@grayLight:         #777;
+@gray:              #555;
+@grayDark:          #333;
+@black:             #000;
 
 // Accent Colors
-@blue: #00b3ee;
-@green: #46a546;
-@red: #9d261d;
-@yellow: #ffc40d;
-@orange: #f89406;
-@pink: #c3325f;
-@purple: #7a43b6;
+@blue:              #08b5fb;
+@green:             #46a546;
+@red:               #9d261d;
+@yellow:            #ffc40d;
+@orange:            #f89406;
+@pink:              #c3325f;
+@purple:            #7a43b6;
 </pre>
       <p>Note that the <code>@linkColorHover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
       <p>Also included are some great accent colors for just about every element you'll need when getting started.</p>
