@@ -186,14 +186,16 @@
       </div>
     <p>The <code>.container</code> and <code>.columns</code> mixins do all the code generation for you, meaning all you need to do is add the markup and call the mixins. Here's the LESS code that's needed to make it all happen, followed by the above example's code.</p>
 <pre>// Grid System
-@gridColumns: 16;
-@gridColumnWidth: 40px;
-@gridGutterWidth: 20px;
+@gridColumns:       16;
+@gridColumnWidth:   40px;
+@gridGutterWidth:   20px;
+@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 .container {
-  width: (@gridColumns * @gridColumnWidth) + ((@gridColumns - 1) * @gridGutterWidth);
-  overflow: hidden;
+  width: @siteWidth;
+  margin: 0 auto;
+  .clearfix();
 }
-.columns(@column-span: 1) {
+.columns(@columnSpan: 1) {
   display: inline;
   float: left;
   width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
@@ -201,6 +203,9 @@
   &:first-child {
     margin-left: 0;
   }
+}
+.offset(@columnOffset: 1) {
+  margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
 }</pre>
     <p>And here's how you take that and create some sweet ass columns:</p>
 <pre>// Gimme a grid!
@@ -214,7 +219,7 @@ div.grid {
   ...
   div.span11 { .columns(11); }
 }</pre>
-      <p>Boom, columns, baby!</p>
+      <p>Boom, columns, baby! Also worth noting is the <code>.offset</code> mixin; with it you can build offset columns just like normal columns for more grid fun.</p>
 
       <h2 id="helpers">Miscellaneous helpers</h2>
       <p>A few helper methods that save time for common sizing and alignment patterns.</p>
