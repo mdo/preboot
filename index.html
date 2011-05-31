@@ -215,6 +215,24 @@ div.grid {
   div.span11 { .columns(11); }
 }</pre>
       <p>Boom, columns, baby!</p>
+
+      <h2 id="helpers">Miscellaneous helpers</h2>
+      <p>A few helper methods that save time for common sizing and alignment patterns.</p>
+<pre>// Center-align a block level element
+.center-block { 
+  display: block;
+  margin: 0 auto;
+}
+
+// Sizing shortcuts
+.size(@height: 5px, @width: 5px) {
+  height: @height;
+  width: @width;
+}
+.square(@size: 5px) {
+  .size(@size, @size);
+}
+</pre>
     </section>
       
     <section>
@@ -257,29 +275,7 @@ div.grid {
 }
 </pre>
     </section>
-     
-	<section>
-
-    <section>
-      <h2 id="helpers">Helpers</h2>
-      <p>Helper methods that save time for common sizing and alignment patterns within your CSS.</p>
-<pre>// Center-align a block level element
-.center-block { 
-  display: block;
-  margin: 0 auto;
-}
-
-// Sizing shortcuts
-.size(@height: 5px, @width: 5px) {
-  height: @height;
-  width: @width;
-}
-.square(@size: 5px) {
-  .size(@size, @size);
-}
-</pre>
-    </section>
-     
+          
 
     <section>
       <h2>How to Use</h2>
