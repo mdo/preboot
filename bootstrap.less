@@ -53,12 +53,19 @@
 	}
 }
 
-// Floats
-.right {
-  float: right;
+// Center-align a block level element
+.center-block { 
+	display: block;
+  margin: 0 auto;
 }
-.left {
-  float: left;
+
+// Sizing shortcuts
+.size(@height: 5px, @width: 5px) {
+	height: @height;
+	width: @width;
+}
+.square(@size: 5px) {
+	.size(@size, @size);
 }
 
 // Input placeholder text
@@ -221,4 +228,13 @@
     background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
   }
+}
+
+
+// Opacity
+.opacity(@opacity: 100) {
+	filter: e(%("alpha(opacity=%d)", @opacity));
+	-khtml-opacity: @op / 100;
+	-moz-opacity: @op / 100;
+	opacity: @op / 100;
 }
