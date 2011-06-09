@@ -49,6 +49,7 @@
             <li><a href="#buttons">Buttons</a></li>
             <li><a href="#grid">Grid System</a></li>
             <li><a href="#helpers">Helpers</a></li>
+            <li><a href="#flexbox">Flexible Box Module</a></li>
           </ul>
         </div>
         <div class="span5">
@@ -239,7 +240,29 @@ div.grid {
 }
 </pre>
     </section>
-      
+    <section>
+      <h2 id="flexbox">Flexible Box Module</h2>
+      <p></p>
+      <div class="flexbox">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+<pre>
+div.flexbox {
+  #flexbox > .display-box;
+  #flexbox > .box-pack(center);
+  div {
+    margin: 5px;
+    #translucent > .background(@black,.25);
+    .square(50px);
+  }
+  div.box2 {
+    #flexbox > .box-flex(1);
+  }
+}
+</pre>
+    </section>
     <section>
       <h2 id="variables">Variables</h2>
       <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
