@@ -234,9 +234,10 @@
 // Opacity
 .opacity(@opacity: 100) {
 	filter: e(%("alpha(opacity=%d)", @opacity));
-	-khtml-opacity: @op / 100;
-	-moz-opacity: @op / 100;
-	opacity: @op / 100;
+	-khtml-opacity: @opacity / 100;
+	-moz-opacity: @opacity / 100;
+	opacity: @opacity / 100;
+	-ms-filter: e(%("progid:DXImageTransform.Microsoft.Alpha(Opacity=%d)", @opacity));
 }
 
 // CSS3 Flexible Box Module

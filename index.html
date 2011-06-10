@@ -45,6 +45,7 @@
             <li><a href="#transitions">Transitions</a></li>
             <li><a href="#clearfix">Clearfix</a></li>
             <li><a href="#translucency">Translucency</a></li>
+            <li><a href="#opacity">Opacity</a></li>
             <li><a href="#font-stacks">Font Stacks</a></li>
             <li><a href="#buttons">Buttons</a></li>
             <li><a href="#grid">Grid System</a></li>
@@ -116,6 +117,32 @@
     #translucent > .background(#900, 0.5);
   }
 }
+</pre>
+      
+	  <h3 id="opacity">Opacity</h3>
+	  <p>Set the opacity of any element </p>
+	  <p>
+			<div id="opacMe">Half Visible</div>
+	   </p>
+	<pre>#opacMe { .opacity(50); }
+</pre>
+      
+	<p>Combined with hover and transition, opacity can great subtle focus effects</p>
+	<p>
+		<div id="opacMeAndHover">
+			Hover me
+		</div>
+		</p>
+	<pre>
+		#opacMeAndHover
+		{
+			.opacity(35);
+			.transition(all 1s ease);
+			&:hover
+			{
+				.opacity(100);
+			}
+		}
 </pre>
       
       <h3 id="font-stacks">Font Stacks</h3>
