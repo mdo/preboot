@@ -178,3 +178,25 @@ div.flexbox {
     #flexbox > .box-flex(1);
   }
 }
+
+// Opacity example
+#opacMe, #opacMeAndHover 
+{ 
+  margin: 20px 0;
+  text-align:center;
+  padding: 20px;
+  color: @black;
+  .border-radius(6px);
+  background : @white ;
+}
+
+#opacMe { .opacity(50); }
+#opacMeAndHover
+{
+	.opacity(35);
+	.transition(all 1s ease);
+	&:hover
+	{
+		.opacity(100);
+	}
+}
