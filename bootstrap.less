@@ -290,3 +290,89 @@
     box-pack: @pack;
   }
 }
+
+// Based on Eric Meyers' reset 2.0 - http://meyerweb.com/eric/tools/css/reset/index.html 
+// & the Compass Reset utility - http://compass-style.org/reference/compass/reset/utilities/
+#reset {
+  .global-reset {
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      #reset > .reset-box-model;
+      #reset > .reset-font; 
+    }
+    body {
+      #reset > .reset-body; 
+    }
+    ol, ul {
+      #reset > .reset-list-style; 
+    }
+    table {
+      #reset > .reset-table; 
+    }
+    caption, th, td {
+      #reset > .reset-table-cell; 
+    }
+    q, blockquote {
+      #reset > .reset-quotation; 
+    }
+    a img {
+      #reset > .reset-image-anchor-border; 
+    }
+    #reset > .reset-html5;
+  }
+  .reset-box-model {
+    margin: 0;
+    padding: 0;
+    border: 0; 
+  }
+  .reset-font {
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  .reset-focus {
+    outline: 0;
+  }
+  .reset-body {
+    line-height: 1;
+  }
+  .reset-list-style {
+    list-style: none;
+  }
+  .reset-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .reset-table-cell {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+  .reset-quotation {
+    quotes: none;
+    &:before, &:after {
+      content: ""; 
+      content: none;
+    }
+  }
+  .reset-image-anchor-border {
+    border: none;
+  }
+  .reset-html5 {
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+  }
+}
