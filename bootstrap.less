@@ -42,7 +42,7 @@
 -------------------------------------------------- */
 
 // Clearfix for clearing floats like a boss
-.clearfix {
+.clearfix(){
   zoom: 1;
 	&:after {
     display: block;
@@ -54,7 +54,7 @@
 }
 
 // Center-align a block level element
-.center-block { 
+.center-block(){ 
 	display: block;
   margin: 0 auto;
 }
@@ -106,7 +106,7 @@
 }
 
 // Grid System
-.container {
+.container(){
   width: @siteWidth;
   margin: 0 auto;
   .clearfix();
@@ -186,7 +186,7 @@
 
 // Gradients
 #gradient {
-  .horizontal (@startColor: #555, @endColor: #333) {
+  .horizontal(@startColor: #555, @endColor: #333) {
     background-color: @endColor;
     background-repeat: repeat-x;
     background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor)); /* Konqueror */
@@ -199,7 +199,7 @@
     -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor); /* IE8+ */
     background-image: linear-gradient(left, @startColor, @endColor); /* the standard */
   }
-  .vertical (@startColor: #555, @endColor: #333) {
+  .vertical(@startColor: #555, @endColor: #333) {
     background-color: @endColor;
     background-repeat: repeat-x;
     background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Konqueror */
@@ -212,7 +212,7 @@
     -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor); /* IE8+ */
     background-image: linear-gradient(@startColor, @endColor); /* the standard */
   }
-  .directional (@startColor: #555, @endColor: #333, @deg: 45deg) {
+  .directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
     background-color: @endColor;
     background-repeat: repeat-x;
     background-image: -moz-linear-gradient(@deg, @startColor, @endColor); /* FF 3.6+ */
@@ -242,7 +242,7 @@
 // CSS3 Flexible Box Module
 #flexbox {
   // #flexbox > .display-box; must be used along with other flexbox mixins
-  .display-box { 
+  .display-box(){ 
     display: -moz-box;
     display: -webkit-box;
     display: box;
@@ -294,7 +294,7 @@
 // Based on Eric Meyers' reset 2.0 - http://meyerweb.com/eric/tools/css/reset/index.html 
 // & the Compass Reset utility - http://compass-style.org/reference/compass/reset/utilities/
 #reset {
-  .global-reset {
+  .global-reset(){
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -331,45 +331,45 @@
     }
     #reset > .reset-html5;
   }
-  .reset-box-model {
+  .reset-box-model(){
     margin: 0;
     padding: 0;
     border: 0; 
   }
-  .reset-font {
+  .reset-font(){
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
   }
-  .reset-focus {
+  .reset-focus(){
     outline: 0;
   }
-  .reset-body {
+  .reset-body(){
     line-height: 1;
   }
-  .reset-list-style {
+  .reset-list-style(){
     list-style: none;
   }
-  .reset-table {
+  .reset-table(){
     border-collapse: collapse;
     border-spacing: 0;
   }
-  .reset-table-cell {
+  .reset-table-cell(){
     text-align: left;
     font-weight: normal;
     vertical-align: middle;
   }
-  .reset-quotation {
+  .reset-quotation(){
     quotes: none;
     &:before, &:after {
       content: ""; 
       content: none;
     }
   }
-  .reset-image-anchor-border {
+  .reset-image-anchor-border(){
     border: none;
   }
-  .reset-html5 {
+  .reset-html5(){
     article, aside, details, figcaption, figure, 
     footer, header, hgroup, menu, nav, section {
       display: block;
