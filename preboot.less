@@ -133,17 +133,28 @@
   margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
 }
 
-// Border Radius
-.border-radius(@radius: 5px) {
-  -moz-border-radius: @radius;
-  border-radius: @radius;
+// Single side border-radius
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
 }
 
 // Drop shadows
-.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
-  -webkit-box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  box-shadow: @shadow;
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
 }
 
 // Transitions
