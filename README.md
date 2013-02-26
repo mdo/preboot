@@ -1,6 +1,6 @@
 # Preboot
 
-Preboot is a collection of mixins and variables for LESS to help you quickly code with CSS.
+Preboot is a collection of Less mixins and variables for quickly writing CSS. As the precursor to Bootstrap, it servces as a lightweight and interface agnostic approach to kickstarting your next web project. Use it how you see fit.
 
 
 
