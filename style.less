@@ -10,15 +10,14 @@ q:before, q:after, blockquote:before, blockquote:after { content: ""; }
 
 // Nice bod
 html, body {
-  background-color: darken(saturate(@purple, 5), 10);
+  background-color: #fff;
 }
 body {
+  padding: 40px 10% 40px 35%;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
   background-attachment: fixed;
   #gradient > .vertical(darken(saturate(@purple, 5), 10), @blue);
-  padding: 60px 0;
-  color: #fff;
-  text-rendering: optimizeLegibility;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
   .box-shadow(inset 0 50px 200px rgba(0,0,0,.2));
 }
 body, p, li {
@@ -96,8 +95,20 @@ pre {
   white-space: pre-wrap;
 }
 
+.masthead {
+  position: fixed;
+  bottom: 40px;
+  left: 5%;
+  width: 25%;
+}
+.masthead p {
+  font-size: 21px;
+}
+
+
+
 // Scaffolding
-header,
+/*header,
 section,
 footer {
   width: 640px;
@@ -132,7 +143,7 @@ footer {
     }
   }
 }
-
+*/
 // Buttons
 a.button {
   .button();

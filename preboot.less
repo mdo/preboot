@@ -116,8 +116,8 @@
 
 // Grid System
 .container {
-  width: @siteWidth;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   .clearfix();
 }
 .columns(@columnSpan: 1) {
@@ -132,6 +132,52 @@
 .offset(@columnOffset: 1) {
   margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
 }
+
+
+// Mobile-first defaults
+.row {
+  margin-left:  -15px;
+  margin-right: -15px;
+  .clearfix();
+}
+[class^="grid-"] {
+  float: left;
+  min-height: 1px; // Prevent columns from collapsing when empty
+  padding-left:  15px;
+  padding-right: 15px;
+  // Proper box-model (padding doesn't add to width)
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.grid-1  { width: 8.333333333%; }
+.grid-2  { width: 16.666666667%; }
+.grid-3  { width: 25%; }
+.grid-4  { width: 33.333333333%; }
+.grid-5  { width: 41.666666667%; }
+.grid-6  { width: 50%; }
+.grid-7  { width: 58.333333333%; }
+.grid-8  { width: 66.666666667%; }
+.grid-9  { width: 75%; }
+.grid-10 { width: 83.333333333%; }
+.grid-11 { width: 91.666666667%; }
+
+.offset1 { margin-left: 8.333333333%; }
+.offset2 { margin-left: 16.666666667%; }
+.offset3 { margin-left: 25%; }
+.offset4 { margin-left: 33.333333333%; }
+.offset5 { margin-left: 41.666666667%; }
+.offset6 { margin-left: 50%; }
+.offset7 { margin-left: 58.333333333%; }
+.offset8 { margin-left: 66.666666667%; }
+
+table [class^="span"] {
+  float: none;
+  padding: 0;
+}
+
+
 
 // Single side border-radius
 .border-top-radius(@radius) {
