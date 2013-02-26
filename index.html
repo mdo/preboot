@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- // Less.js at the ready! -->
     <link rel="stylesheet/less" type="text/css" media="all" href="style.less" />
-    <script type="text/javascript" src="less-1.1.3.min.js"></script>
+    <script type="text/javascript" src="less-1.3.3.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       less.env = "development";
       less.watch();
@@ -23,15 +23,15 @@
       })();
     </script>
   </head>
-  
+
   <body>
-    
+
     <header>
       <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
       <h1>Bootstrap.less</h1>
       <h2>Bootstrap is a super awesome pack of mixins and variables to be used in conjunction with <a href="http://lesscss.org" target="_blank">LESS</a>, a CSS preprocessor for faster and easier web development.</h2>
     </header>
-    
+
     <section>
       <h2>What's Inside</h2>
       <p>Here's the rundown of what you can find in Bootstrap:</p>
@@ -62,7 +62,7 @@
         </div>
       </div>
     </section>
-    
+
     <section>
       <h2>Mixins</h2>
       <p>Mixins are basically supercharged includes for CSS, allowing you to combine a set of rules into one. They're great for vendor prefixed properties like <code>-webkit-box-shadow</code>, gradients, and more.</p>
@@ -91,7 +91,7 @@
 <pre>#gradient > .vertical-three-colors(#777,#333,.25,#000);
 #gradient > .vertical-three-colors(@blue,@red,@purple);</pre>
       <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
-      
+
       <h3 id="transitions">Transitions</h3>
       <p>Elegantly transition elements in style with a single rule.</p>
 <pre>.transition(@transition: all linear .2s) {
@@ -100,14 +100,14 @@
   transition: @transition;
 }</pre>
       <p>Example transitions could include fading input elements on focus (instead of the default <code>outline</code>), animating logos on hover, and even animating link hovers.</p>
-      
+
       <h3 id="clearfix">Simple Clearfix</h3>
       <p>Forget adding <code>.clearfix</code> to all your divs and just add the mixin where appropriate.</p>
 <pre>.container {
   .clearfix;
 }
 </pre>
-      
+
       <h3 id="translucency">Make Any Color Translucent</h3>
       <p>While RGBA is great, LESS only has a color conversion tool that changes any color to HSL. By doing so, it allows us to add an extra alpha layer (just like RGB to RGBA). Just call the mixin, select a color, and add the alpha transparency (a decimal value from 0 to 1).</p>
 <pre>.container {
@@ -117,7 +117,7 @@
   }
 }
 </pre>
-      
+
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
 <pre>#font {
@@ -173,7 +173,7 @@
 }
 </pre>
       <p>Using just the base color of the buttons you can easily create a whole family of buttons with only a few lines of code.</p>
-      
+
       <h3 id="grid">Flexible Grid System</h3>
       <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
       <div class="grid show-grid">
@@ -225,7 +225,7 @@ div.grid {
       <h2 id="helpers">Miscellaneous helpers</h2>
       <p>A few helper methods that save time for common sizing and alignment patterns.</p>
 <pre>// Center-align a block level element
-.center-block { 
+.center-block {
   display: block;
   margin: 0 auto;
 }
@@ -303,7 +303,7 @@ div.flexbox {
 }
 </pre>
     </section>
-          
+
 
     <section>
       <h2>How to Use</h2>
@@ -315,7 +315,7 @@ div.flexbox {
         <li>Start writing super awesome CSS!</li>
       </ol>
       <p>That's it&mdash;all you need to do is include a javascript and less file and you're ready to rock. But wait, there's more!</p>
-      
+
       <h3>Fully Bootstrapped</h3>
       <p>Looking for a simpler start? Look no further than this very page. It's included as a fully functional demo of what's possible with LESS and Bootstrap that you can play around with or use as a template for something more.</p>
       <p>It's licensed under the Creative Commons, so you're set to do what you please with it so long as you give me a shoutout or a link back here (it's much appreciated, and thanks in advance!).</p>
@@ -326,16 +326,16 @@ div.flexbox {
       <p>Bootstrap is available for download right from <a href="http://github.com/" target="_blank">GitHub</a>, the best code hosting and version control service out there. Included in the zip are the latest version of LESS, Bootstrap.less, and a demo page.</p>
       <p><a href="https://github.com/markdotto/Bootstrap.less/zipball/master" class="purple button">Download Bootstrap.less</a> <small>or <a href="http://github.com/markdotto/Bootstrap.less" target="_blank">check it out on GitHub</a></small></p>
     </section>
-    
+
     <footer>
       <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
       <p>
-        <a href="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" target="_blank">Read the blog post</a> <span>&middot;</span> 
+        <a href="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" target="_blank">Read the blog post</a> <span>&middot;</span>
         <a href="http://github.com/markdotto/Bootstrap.less" target="_blank">View on GitHub</a>
       </p>
       <p>
-        <a href="mailto:hi@markdotto.com?subject=About Bootstrap">Questions or comments?</a> <span>&middot;</span> 
-        <a href="http://lesscss.org" target="_blank">Made for LESS</a> <span>&middot;</span> 
+        <a href="mailto:hi@markdotto.com?subject=About Bootstrap">Questions or comments?</a> <span>&middot;</span>
+        <a href="http://lesscss.org" target="_blank">Made for LESS</a> <span>&middot;</span>
         Made by @<a href="http://twitter.com/mdo">mdo</a>
       </p>
       <p>Licensed under the <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons</a>.</p>
