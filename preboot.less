@@ -1,7 +1,7 @@
 /*
-  Bootstrap v1.1
-  Variables and mixins to bootstrap any new web development project.
-*/
+ * Preboot v2
+ * Open sourced under MIT license by @mdo
+ */
 
 
 /* Variables
@@ -54,7 +54,7 @@
 }
 
 // Center-align a block level element
-.center-block { 
+.center-block {
 	display: block;
   margin: 0 auto;
 }
@@ -242,7 +242,7 @@
 // CSS3 Flexible Box Module
 #flexbox {
   // #flexbox > .display-box; must be used along with other flexbox mixins
-  .display-box { 
+  .display-box {
     display: -moz-box;
     display: -webkit-box;
     display: box;
@@ -291,7 +291,7 @@
   }
 }
 
-// Based on Eric Meyers' reset 2.0 - http://meyerweb.com/eric/tools/css/reset/index.html 
+// Based on Eric Meyers' reset 2.0 - http://meyerweb.com/eric/tools/css/reset/index.html
 // & the Compass Reset utility - http://compass-style.org/reference/compass/reset/utilities/
 #reset {
   .global-reset {
@@ -304,37 +304,37 @@
     dl, dt, dd, ol, ul, li,
     fieldset, form, label, legend,
     table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed, 
-    figure, figcaption, footer, header, hgroup, 
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video {
       #reset > .reset-box-model;
-      #reset > .reset-font; 
+      #reset > .reset-font;
     }
     body {
-      #reset > .reset-body; 
+      #reset > .reset-body;
     }
     ol, ul {
-      #reset > .reset-list-style; 
+      #reset > .reset-list-style;
     }
     table {
-      #reset > .reset-table; 
+      #reset > .reset-table;
     }
     caption, th, td {
-      #reset > .reset-table-cell; 
+      #reset > .reset-table-cell;
     }
     q, blockquote {
-      #reset > .reset-quotation; 
+      #reset > .reset-quotation;
     }
     a img {
-      #reset > .reset-image-anchor-border; 
+      #reset > .reset-image-anchor-border;
     }
     #reset > .reset-html5;
   }
   .reset-box-model {
     margin: 0;
     padding: 0;
-    border: 0; 
+    border: 0;
   }
   .reset-font {
     font-size: 100%;
@@ -362,7 +362,7 @@
   .reset-quotation {
     quotes: none;
     &:before, &:after {
-      content: ""; 
+      content: "";
       content: none;
     }
   }
@@ -370,7 +370,7 @@
     border: none;
   }
   .reset-html5 {
-    article, aside, details, figcaption, figure, 
+    article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
       display: block;
     }
