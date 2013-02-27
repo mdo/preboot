@@ -64,17 +64,17 @@
 
 // Center-align a block level element
 .center-block {
-	display: block;
+  display: block;
   margin: 0 auto;
 }
 
 // Sizing shortcuts
 .size(@height: 5px, @width: 5px) {
-	height: @height;
-	width: @width;
+  height: @height;
+  width: @width;
 }
 .square(@size: 5px) {
-	.size(@size, @size);
+  .size(@size, @size);
 }
 
 // Input placeholder text
@@ -205,50 +205,21 @@ table [class^="span"] {
 
 // Transitions
 .transition(@transition) {
-	-webkit-transition: @transition;
-	-moz-transition: @transition;
-	transition: @transition;
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  transition: @transition;
 }
 
 // CSS3 Content Columns
 .content-columns(@columnCount, @columnGap: 20px) {
-	-webkit-column-count: @columnCount;
-	-webkit-column-gap: @columnGap;
-	-moz-column-count: @columnCount;
-	-moz-column-gap: @columnGap;
-	column-count: @columnCount;
-	column-gap: @columnGap;
+  -webkit-column-count: @columnCount;
+  -webkit-column-gap: @columnGap;
+  -moz-column-count: @columnCount;
+  -moz-column-gap: @columnGap;
+  column-count: @columnCount;
+  column-gap: @columnGap;
 }
 
-// Buttons
-.button(@color: #f5f5f5, @textColor: #333, @textShadow: 0 1px 1px rgba(255,255,255,.75), @fontSize: 13px, @padding: 9px 15px 10px, @borderRadius: 6px) {
-  display: inline-block;
-  #gradient > .vertical(@color,darken(saturate(@color,10),10));
-  padding: @padding;
-  text-shadow: @textShadow;
-  color: @textColor;
-  font-size: @fontSize;
-  line-height: 20px;
-  border-radius: @borderRadius;
-  @shadow: inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 1px 2px rgba(0,0,0,.25);
-  .box-shadow(@shadow);
-  &:hover {
-    background-position: 0 -15px;
-    color: @textColor;
-    text-decoration: none;
-  }
-}
-
-// Add an alphatransparency value to any background or border color (via Elyse Holladay)
-#translucent {
-  .background(@color: @white, @alpha: 1) {
-    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-	}
-	.border(@color: @white, @alpha: 1) {
-		border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-		background-clip: padding-box;
-	}
-}
 
 // Gradients
 #gradient {
@@ -299,10 +270,10 @@ table [class^="span"] {
 
 // Opacity
 .opacity(@opacity: 100) {
-	filter: e(%("alpha(opacity=%d)", @opacity));
-	-khtml-opacity: @op / 100;
-	-moz-opacity: @op / 100;
-	opacity: @op / 100;
+  filter: e(%("alpha(opacity=%d)", @opacity));
+  -khtml-opacity: @op / 100;
+  -moz-opacity: @op / 100;
+  opacity: @op / 100;
 }
 
 // CSS3 Flexible Box Module
