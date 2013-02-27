@@ -17,39 +17,36 @@
 //
 
 
-html, body {
+html,
+body {
   background-color: #fff;
 }
 body {
-  padding: 40px 10% 40px 35%;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  background-attachment: fixed;
-  #gradient > .vertical(darken(saturate(@purple, 5), 10), @blue);
-  .box-shadow(inset 0 50px 200px rgba(0,0,0,.2));
-}
-body, p, li {
-  #font > .sans-serif(normal,15px,20px);
+  padding: 0;
+  font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #555;
 }
 
 // Bangin' links
-@link-color: #fff;
-a, a:visited {
+a {
   font-weight: bold;
-  color: @link-color;
+  color: @blue;
   text-decoration: none;
-  .transition(all linear .2s);
   &:hover {
-    color: @link-color;
+    color: @blue;
     text-decoration: underline;
-    text-shadow: 0 0 10px rgba(255,255,255,.75);
   }
 }
 
 // Typography
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #333;
 }
 h1 {
   font-size: 50px;
@@ -66,21 +63,14 @@ h4 {
   margin-bottom: 0;
 }
 p {
-  margin-bottom: 20px;
+  margin: 0 0 10px;
 }
-ol, ul {
-  margin-left: 30px;
-  margin-bottom: 20px;
-}
-ol {
-  list-style: decimal;
-}
+ol,
 ul {
-  list-style: disc;
-  li a {
-    font-weight: normal;
-  }
+  margin-left: 0;
+  margin-bottom: 10px;
 }
+
 
 // Code!
 code, pre {
@@ -103,14 +93,75 @@ pre {
   white-space: pre-wrap;
 }
 
+
+.header-divider {
+  margin-top: 60px;
+}
+.header-divider:after {
+  display: block;
+  content: "";
+  width: 25%;
+  height: 4px;
+  margin: 20px 0 26px;
+  background-color: #555;
+  border: 0;
+  opacity: .5;
+}
+.masthead .header-divider:after {
+  width: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,.3);
+  opacity: 1;
+}
+
+
+
+.container {
+  margin-left: 30%;
+  margin-right: 10%;
+}
+
 .masthead {
   position: fixed;
-  bottom: 40px;
-  left: 5%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
   width: 25%;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  background-attachment: fixed;
+  #gradient > .vertical(darken(saturate(@purple, 10%), 15%), darken(@blue, 5%));
+
+  /*background-color: #222;*/
+
+  /*overflow: hidden;*/
 }
-.masthead p {
-  font-size: 21px;
+.masthead:after {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  bottom: -20px;
+  left: -10px;
+  z-index: 10;
+  display: block;
+  content: " ";
+  box-shadow: inset -5px 0 25px rgba(0,0,0,.3);
+}
+
+.masthead-inner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  padding: 40px;
+}
+
+.masthead h1 {
+  font-size: 60px;
+  color: #fff;
+  letter-spacing: -1px;
 }
 
 

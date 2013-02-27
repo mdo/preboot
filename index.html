@@ -2,45 +2,53 @@
 layout: default
 ---
 
-    <header class="masthead">
-      <h1>Preboot</h1>
-      <p class="lead">A collection of LESS mixins and variables for writing better CSS.</p>
-      <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
-    </header>
 
-    <section>
-      <h2>What's Inside</h2>
-      <p>Here's the rundown of what you can find in Bootstrap:</p>
-      <div class="grid">
-        <div class="span5">
-          <h3>Mixins</h3>
-          <ul>
-            <li><a href="#border-radius">Rounded Corners</a></li>
-            <li><a href="#box-shadow">Box Shadows</a></li>
-            <li><a href="#gradients">Gradients</a></li>
-            <li><a href="#transitions">Transitions</a></li>
-            <li><a href="#clearfix">Clearfix</a></li>
-            <li><a href="#translucency">Translucency</a></li>
-            <li><a href="#font-stacks">Font Stacks</a></li>
-            <li><a href="#buttons">Buttons</a></li>
-            <li><a href="#grid">Grid System</a></li>
-            <li><a href="#helpers">Helpers</a></li>
-            <li><a href="#flexbox">Flexible Box Module</a></li>
-          </ul>
-        </div>
-        <div class="span5">
-          <h3>Variables</h3>
-          <ul>
-            <li><a href="#links">Links</a></li>
-            <li><a href="#scheme">Color scheme</a></li>
-            <li><a href="#baseline">Baseline</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <h2>Mixins</h2>
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1 class="header-divider">Preboot</h1>
+    <p class="lead">A collection of LESS mixins and variables for writing better CSS.</p>
+    <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
+  </div>
+</header>
+
+
+
+<section id="table-of-contents">
+  <h2 class="header-divider">What's included</h2>
+  <p>Here's the rundown of what you can find in Preboot:</p>
+  <div class="row">
+    <div class="grid-6">
+      <h3>Mixins</h3>
+      <ul>
+        <li><a href="#border-radius">Rounded Corners</a></li>
+        <li><a href="#box-shadow">Box Shadows</a></li>
+        <li><a href="#gradients">Gradients</a></li>
+        <li><a href="#transitions">Transitions</a></li>
+        <li><a href="#clearfix">Clearfix</a></li>
+        <li><a href="#translucency">Translucency</a></li>
+        <li><a href="#font-stacks">Font Stacks</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#grid">Grid System</a></li>
+        <li><a href="#helpers">Helpers</a></li>
+        <li><a href="#flexbox">Flexible Box Module</a></li>
+      </ul>
+    </div>
+    <div class="grid-6">
+      <h3>Variables</h3>
+      <ul>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#scheme">Color scheme</a></li>
+        <li><a href="#baseline">Baseline</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+    <section id="mixins">
+      <h2 class="header-divider">Mixins</h2>
       <p>Mixins are basically supercharged includes for CSS, allowing you to combine a set of rules into one. They're great for vendor prefixed properties like <code>-webkit-box-shadow</code>, gradients, and more.</p>
       <h3 id="border-radius">Rounding Corners</h3>
       <p>Round the corners of an element with <code>.border-radius</code>. You can pass in a single value for all corners like so:</p>
