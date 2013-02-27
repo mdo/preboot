@@ -10,6 +10,7 @@
 
 @import "normalize.less";
 @import "preboot.less";
+@import "pygments.less";
 
 
 //
@@ -72,7 +73,7 @@ ul {
 
 
 // Code!
-code, pre {
+/*code, pre {
   #gradient > .vertical(rgba(0,0,0,.15), rgba(0,0,0,0));
   background-color: rgba(0,0,0,.3);
   #font > .monospace();
@@ -90,7 +91,35 @@ pre {
   color: #fff;
   border-radius: 6px;
   white-space: pre-wrap;
+}*/
+
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
 }
+.highlight pre {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+}
+.highlight pre code {
+  font-size: inherit;
+  color: #333; /* Effectively the base text color */
+}
+.highlight pre .lineno {
+  display: inline-block;
+  width: 18px;
+  padding-right: 5px;
+  margin-right: 10px;
+  text-align: right;
+  color: #bebec5;
+}
+
 
 // Neato divider between headers and content
 .header-divider {
@@ -243,11 +272,11 @@ div.grid {
   div.span4 { .columns(4); }
   div.span5 { .columns(5); }
   &.show-grid {
-    #translucent > .background(@black,.25);
+    /*#translucent > .background(@black,.25);*/
     height: 200px;
     margin-bottom: 20px;
     div {
-      #translucent > .background(@black,.25);
+      /*#translucent > .background(@black,.25);*/
       height: 200px;
       text-align: center;
       #font > .sans-serif(normal,12px,200px);
@@ -261,7 +290,7 @@ div.flexbox {
   #flexbox > .box-pack(center);
   div {
     margin: 5px;
-    #translucent > .background(@black,.25);
+    /*#translucent > .background(@black,.25);*/
     .square(50px);
   }
   div.box2 {
