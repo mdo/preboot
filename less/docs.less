@@ -66,8 +66,8 @@ p {
 }
 ol,
 ul {
-  margin-left: 0;
-  margin-bottom: 15px;
+  margin: 0 0 15px;
+  padding: 0;
 }
 
 
@@ -210,6 +210,20 @@ pre {
   opacity: 1;
 }
 
+// Table of contents
+.toc li {
+  display: block;
+}
+.toc a {
+  display: block;
+  margin-left: -10px;
+  padding: 4px 10px;
+  &:hover {
+    text-decoration: none;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+  }
+}
 
 // Colors
 .color-swatches {
