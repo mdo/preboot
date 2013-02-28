@@ -1,0 +1,16 @@
+{
+    "name": "preboot"
+  , "description": "A collection of LESS mixins and variables for writing better CSS."
+  , "version": "2.0.0"
+  , "keywords": ["preboot", "css", "less"]
+  , "homepage": "http://getpreboot.com/"
+  , "author": "Mark Otto"
+  , "repository": {
+      "type": "git"
+    , "url": "https://github.com/mdo/preboot.git"
+  }
+  , "license": "MIT"
+  , "devDependencies": {
+    "recess": "1.1.6"
+  }
+}
