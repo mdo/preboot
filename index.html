@@ -28,7 +28,7 @@ layout: default
 
 <section id="table-of-contents">
   <h2 class="header-divider">What's included</h2>
-  <p>Here's the rundown of what you can find in Preboot:</p>
+  <p>Here's the rundown of what you can find in Preboot. Peruse or jump right to a section for some lightweight documentation and code snippets.</p>
   <div class="row">
     <div class="grid-6">
       <h3>Variables</h3>
@@ -36,22 +36,22 @@ layout: default
         <li><a href="#variables-colors">Color</a></li>
         <li><a href="#variables-scaffolding">Scaffolding</a></li>
         <li><a href="#variables-links">Links</a></li>
-        <!-- <li><a href="#baseline">Baseline</a></li> -->
+        <li><a href="#variables-typography">Typography</a></li>
       </ul>
     </div>
     <div class="grid-6">
       <h3>Mixins</h3>
       <ul>
-        <li><a href="#rounded-corners">Rounded corners</a></li>
-        <li><a href="#box-shadow">Box shadows</a></li>
-        <li><a href="#gradients">Gradients</a></li>
-        <li><a href="#transitions">Transitions</a></li>
-        <li><a href="#clearfix">Clearfix</a></li>
-        <li><a href="#translucency">Translucency</a></li>
-        <li><a href="#font-stacks">Font Stacks</a></li>
-        <li><a href="#grid">Grid System</a></li>
-        <li><a href="#helpers">Helpers</a></li>
-        <li><a href="#flexbox">Flexible Box Module</a></li>
+        <li><a href="#mixins-rounded-corners">Rounded corners</a></li>
+        <li><a href="#mixins-box-shadow">Box shadows</a></li>
+        <li><a href="#mixins-gradients">Gradients</a></li>
+        <li><a href="#mixins-transitions">Transitions</a></li>
+        <li><a href="#mixins-clearfix">Clearfix</a></li>
+        <li><a href="#mixins-translucency">Translucency</a></li>
+        <li><a href="#mixins-font-stacks">Font Stacks</a></li>
+        <li><a href="#mixins-grid">Grid System</a></li>
+        <li><a href="#mixins-helpers">Helpers</a></li>
+        <li><a href="#mixins-flexbox">Flexible Box Module</a></li>
       </ul>
     </div>
   </div>
@@ -61,7 +61,7 @@ layout: default
 
 <section>
   <h2 class="header-divider" id="variables">Variables</h2>
-  <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
+  <p>Variables still don't exist in CSS, but they do in LESS and other CSS preprocessors. Preboot includes a several groups of meaningful and useful variables for any project.</p>
 
   <h3 id="variables-color">Colors</h3>
   <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to semantic values.</p>
@@ -150,29 +150,43 @@ a {
 {% endhighlight %}
   <p>Note that the <code>@link-color-hover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use <code>darken</code>, <code>lighten</code>, <code>saturate</code>, and <code>desaturate</code>.</p>
 
-  <h3 id="baseline">Baseline</h3>
-  <p>Though not fully utilized within Bootstrap, <code>@baseline</code> will help simplify your line-heights and vertical rhythm in any project.</p>
+  <h3 id="variables-typography">Links</h3>
+  <p>Easily set your font face, text size, leading, and more with a few quick variables. Preboot makes use of these as well to provide easy typographic mixins as well.</p>
 {% highlight css linenos %}
-@baseline:          20px;
+// Typography
+
+// Font stacks for easy inclusion and customization
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+// Generate a straightforward type scale
+@font-size-base:          14px;
+@font-size-large:         @font-size-base * 1.25; // ~18px
+@font-size-small:         @font-size-base * 0.85; // ~12px
+@font-size-mini:          @font-size-base * 0.75; // ~11px
+
+// Baseline for the line-height of the body
+// To be used in conjunction with @font-size-base
+@line-height-base:        20px;
+
+// Enable the option to customize headings
+@headings-font-family:    inherit; // From @font-family-base
+@headings-font-weight:    500;
 {% endhighlight %}
-  <p>Using it is simple:</p>
-{% highlight css linenos %}
-div#exampleBlock {
-  margin-bottom: @baseline * 2; // 40px
-  padding: @baseline; // 20px
-  line-height: @baseline; // 20px
-}
-{% endhighlight %}
-    </section>
+
+
+</section>
+
 
 
     <section id="mixins">
       <h2 class="header-divider">Mixins</h2>
-      <p>Mixins are basically supercharged includes for CSS, allowing you to combine a set of rules into one. They're great for vendor prefixed properties like <code>-webkit-box-shadow</code>, gradients, and more.</p>
+      <p>Mixins are essentially includes, allowing you to combine a set of many CSS rules into one. They're great for vendor prefixed properties like <code>-webkit-box-shadow</code>, gradients, grids, and much more.</p>
 
-      <h3 id="rounded-corners">Rounded corners</h3>
-      <p>Today all modern browsers support the non-prefixed <code>border-radius</code> property. To that end, there is no <code>.border-radius()</code> mixin, but rather shortcuts for quickly rounding two corners on a particular side of an object.</p>
-
+      <h3 id="mixins-rounded-corners">Rounded corners</h3>
+      <p>Today all modern browsers support the non-prefixed <code>border-radius</code> property. As such, there is no <code>.border-radius()</code> mixin, but Preboot does include shortcuts for quickly rounding two corners on a particular side of an object.</p>
 {% highlight css linenos %}
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
@@ -192,17 +206,17 @@ div#exampleBlock {
 }
 {% endhighlight %}
 
-      <h3 id="box-shadow">Box (Drop) shadows</h3>
-      <p>Give any element some depth in all the best browsers with a single rule. Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
-
+      <h3 id="mixins-box-shadow">Box (Drop) shadows</h3>
+      <p>If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on it's own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use of the mixin to pick up the required <code>-webkit</code> prefix.</p>
+      <p>Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
 {% highlight css linenos %}
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow;
-  box-shadow: @shadow;
+          box-shadow: @shadow;
 }
 {% endhighlight %}
 
-      <h3 id="gradients">Gradients</h3>
+      <h3 id="mixins-gradients">Gradients</h3>
       <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors. You can use vertical or horizontal gradients with the following lines of code:</p>
 {% highlight css linenos %}
 #gradient > .vertical(#333,#000);
