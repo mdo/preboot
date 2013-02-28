@@ -64,19 +64,26 @@ h4 {
   font-size: 18px;
   margin-bottom: 0;
 }
+
 p {
   margin: 0 0 15px;
 }
+.lead {
+  font-size: 18px;
+  line-height: 1.25;
+  color: @black-40;
+}
+
 ol,
 ul {
   margin: 0 0 15px 25px;
   padding: 0;
 }
-
-.lead {
-  font-size: 18px;
-  line-height: 1.25;
-  color: @black-40;
+.list-unstyled {
+  margin-left: 0;
+  li {
+    display: block;
+  }
 }
 
 // Inline and block code styles
@@ -195,6 +202,17 @@ pre {
   box-shadow: 0 1px 1px rgba(0,0,0,.3);
   opacity: 1;
 }
+.masthead .list-unstyled {
+  font-size: 90%;
+}
+.masthead a {
+  font-weight: bold;
+  color: #fff;
+  &:hover {
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255,255,255,.5);
+  }
+}
 
 // Table of contents
 .toc {
@@ -246,8 +264,8 @@ pre {
 .btn {
   display: block;
   margin-bottom: 5px;
-  padding: 12px 18px;
-  font-weight: 600;
+  padding: 15px 20px;
+  font-weight: bold;
   line-height: 1;
   color: @purple;
   text-align: center;
