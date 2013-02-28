@@ -492,7 +492,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-centering">Horizontal centering</h3>
-  <p>Quickly center any element within its parent.</p>
+  <p>Quickly center any element within its parent. <strong>Requires <code>width</code> or <code>max-width</code> to be set.</strong></p>
 {% highlight css linenos %}
 // Mixin
 .center-block() {
@@ -503,6 +503,7 @@ a {
 
 // Usage
 .container {
+  width: 940px;
   .center-block();
 }
 {% endhighlight %}
@@ -511,11 +512,11 @@ a {
   <p>Specify the dimensions of an object more easily.</p>
 {% highlight css linenos %}
 // Mixins
-.size(@width: 5px, @height: 5px) {
+.size(@width, @height) {
   width: @width;
   height: @height;
 }
-.square(@size: 5px) {
+.square(@size) {
   .size(@size, @size);
 }
 
@@ -525,9 +526,9 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-resizable">Resizable textareas</h3>
-  <p>Easily configure the resize options for any textarea, or any other element.</p>
+  <p>Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior (<code>both</code>).</p>
 {% highlight css linenos %}
-.resizable(@direction) {
+.resizable(@direction: both) {
   // Options: horizontal, vertical, both
   resize: @direction;
   // Safari fix
@@ -536,7 +537,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-truncating">Truncating text</h3>
-  <p>Easily truncate text with an ellipsis with a single mixin. Requires element to be <code>block</code> or <code>inline-block</code> level.</p>
+  <p>Easily truncate text with an ellipsis with a single mixin. <strong>Requires element to be <code>block</code> or <code>inline-block</code> level.</strong></p>
 {% highlight css linenos %}
 // Mixin
 .text-truncate() {
@@ -554,7 +555,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-retina-images">Retina images</h3>
-  <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
+  <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single media query.</strong></p>
 {% highlight css linenos %}
 // Mixin
 .retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
