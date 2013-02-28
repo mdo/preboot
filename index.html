@@ -39,35 +39,34 @@ layout: default
         <li><a href="#variables-typography">Typography</a></li>
       </ul>
     </div>
-    <div class="grid-8">
-      <h3>Mixins</h3>
-      <div class="row">
-        <div class="grid-6">
-          <ul class="toc">
-            <li><a href="#mixins-background-sizing">Background sizing</a></li>
-            <li><a href="#mixins-box-sizing">Box sizing</a></li>
-            <li><a href="#mixins-rounded-corners">Rounded corners</a></li>
-            <li><a href="#mixins-box-shadow">Box shadows</a></li>
-            <li><a href="#mixins-transitions">Transitions</a></li>
-            <li><a href="#mixins-transformations">Transformations</a></li>
-            <li><a href="#mixins-backface">Backface visibility</a></li>
-            <li><a href="#mixins-user-select">User select</a></li>
-            <li><a href="#mixins-resize">Textarea resize</a></li>
-          </ul>
-        </div>
-        <div class="grid-6">
-          <ul class="toc">
-            <li><a href="#mixins-columns">Columns</a></li>
-            <li><a href="#mixins-opacity">Opacity</a></li>
-            <li><a href="#mixins-gradients">Gradients</a></li>
-            <li><a href="#mixins-clearfix">Clearfix</a></li>
-            <li><a href="#mixins-font-stacks">Font Stacks</a></li>
-            <li><a href="#mixins-grid">Grid System</a></li>
-            <li><a href="#mixins-helpers">Helpers</a></li>
-            <li><a href="#mixins-flexbox">Flexible Box Module</a></li>
-          </ul>
-        </div>
-      </div>
+    <div class="grid-4">
+      <h3>Vendor mixins</h3>
+      <ul class="toc">
+        <li><a href="#mixins-background-sizing">Background sizing</a></li>
+        <li><a href="#mixins-box-sizing">Box sizing</a></li>
+        <li><a href="#mixins-rounded-corners">Rounded corners</a></li>
+        <li><a href="#mixins-box-shadow">Box shadows</a></li>
+        <li><a href="#mixins-transitions">Transitions</a></li>
+        <li><a href="#mixins-transformations">Transformations</a></li>
+        <li><a href="#mixins-opacity">Opacity</a></li>
+        <li><a href="#mixins-placeholder">Placeholder</a></li>
+        <li><a href="#mixins-resize">Textarea resize</a></li>
+        <li><a href="#mixins-columns">Columns</a></li>
+        <li><a href="#mixins-gradients">Gradients</a></li>
+      </ul>
+    </div>
+    <div class="grid-4">
+      <h3>Utility mixins</h3>
+      <ul class="toc">
+        <li><a href="#mixins-grid">Grid system</a></li>
+        <li><a href="#mixins-clearfix">Clearfix</a></li>
+        <li><a href="#mixins-centering">Horizontal centering</a></li>
+        <li><a href="#mixins-sizing">Sizing helpers</a></li>
+        <li><a href="#mixins-truncating">Truncating text</a></li>
+        <li><a href="#mixins-retina-images">Retina images</a></li>
+        <li><a href="#mixins-helpers">Helpers</a></li>
+        <li><a href="#mixins-flexbox">Flexible Box Module</a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -196,12 +195,12 @@ a {
 
 
 
-    <section id="mixins">
-      <h2 class="header-divider">Mixins</h2>
-      <p>Mixins are essentially includes, allowing you to combine a set of many CSS rules into one. They're great for vendor prefixed properties like <code>-webkit-box-shadow</code>, gradients, grids, and much more.</p>
+<section id="mixins">
+  <h2 class="header-divider">Vendor mixins</h2>
+  <p>Write more efficient CSS by writing single-line mixins instead of multiple lines of prefixed properties.</p>
 
-      <h3 id="mixins-box-sizing">Box-sizing</h3>
-      <p>Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">helpful article from Mozilla</a>.</p>
+  <h3 id="mixins-box-sizing">Box-sizing</h3>
+  <p>Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">helpful article from Mozilla</a>.</p>
 {% highlight css linenos %}
 .box-sizing(@box-model) {
   -webkit-box-sizing: @box-model; // Safari <= 5
@@ -210,8 +209,8 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-rounded-corners">Rounded corners</h3>
-      <p>Today all modern browsers support the non-prefixed <code>border-radius</code> property. As such, there is no <code>.border-radius()</code> mixin, but Preboot does include shortcuts for quickly rounding two corners on a particular side of an object.</p>
+  <h3 id="mixins-rounded-corners">Rounded corners</h3>
+  <p>Today all modern browsers support the non-prefixed <code>border-radius</code> property. As such, there is no <code>.border-radius()</code> mixin, but Preboot does include shortcuts for quickly rounding two corners on a particular side of an object.</p>
 {% highlight css linenos %}
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
@@ -231,9 +230,9 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-box-shadow">Box (Drop) shadows</h3>
-      <p>If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on it's own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use of the mixin to pick up the required <code>-webkit</code> prefix.</p>
-      <p>Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
+  <h3 id="mixins-box-shadow">Box (Drop) shadows</h3>
+  <p>If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on it's own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use of the mixin to pick up the required <code>-webkit</code> prefix.</p>
+  <p>Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
 {% highlight css linenos %}
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
@@ -241,8 +240,8 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-transitions">Transitions</h3>
-      <p>Three mixins for flexibility. Set all transition information with one, or specify a separate delay and duration as needed.</p>
+  <h3 id="mixins-transitions">Transitions</h3>
+  <p>Three mixins for flexibility. Set all transition information with one, or specify a separate delay and duration as needed.</p>
 {% highlight css linenos %}
 .transition(@transition) {
   -webkit-transition: @transition;
@@ -264,8 +263,8 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-transformations">Transformations</h3>
-      <p>Rorate, scale, translate (move), or skew any object.</p>
+  <h3 id="mixins-transformations">Transformations</h3>
+  <p>Rorate, scale, translate (move), or skew any object.</p>
 {% highlight css linenos %}
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
@@ -304,62 +303,169 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-gradients">Gradients</h3>
-      <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors. You can use vertical or horizontal gradients with the following lines of code:</p>
+  <h3 id="mixins-opacity">Opacity</h3>
+  <p>Set the opacity for all browsers and provide a <code>filter</code> fallback for IE8.</p>
 {% highlight css linenos %}
-#gradient > .vertical(#333,#000);
-#gradient > .horizontal(@blue,@red);
-{% endhighlight %}
-      <p>Two colors not enough? Go hog wild and add another color into the mix with a .three-color-gradient. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color. Donezo.</p>
-{% highlight css linenos %}
-#gradient > .vertical-three-colors(#777,#333,.25,#000);
-#gradient > .vertical-three-colors(@blue,@red,@purple);
-{% endhighlight %}
-      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors()</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
-
-      <h3 id="transitions">Transitions</h3>
-      <p>Elegantly transition elements in style with a single rule.</p>
-{% highlight css linenos %}
-.transition(@transition: all linear .2s) {
-  -webkit-transition: @transition;
-     -moz-transition: @transition;
-          transition: @transition;
+.opacity(@opacity) {
+  opacity: @opacity;
+  @opacity-ie: @opacity * 100;
+  filter: ~"alpha(opacity=@{opacity-ie})"; // IE8
 }
 {% endhighlight %}
-      <p>Example transitions could include fading input elements on focus (instead of the default <code>outline</code>), animating logos on hover, and even animating link hovers.</p>
 
-      <h3 id="clearfix">Simple Clearfix</h3>
-      <p>Forget adding <code>.clearfix</code> to all your divs and just add the mixin where appropriate.</p>
+  <h3 id="mixins-placeholder">Placeholder text</h3>
+  <p>Provide context for form controls within each field.</p>
+{% highlight css linenos %}
+.placeholder(@color: @input-color-placeholder) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+{% endhighlight %}
+
+  <h3 id="mixins-resizable">Resizable textareas</h3>
+  <p>Easily configure the resize options for any textarea, or any other element.</p>
+{% highlight css linenos %}
+.resizable(@direction) {
+  // Options: horizontal, vertical, both
+  resize: @direction;
+  // Safari fix
+  overflow: auto;
+}
+{% endhighlight %}
+
+  <h3 id="mixins-columns">Columns</h3>
+  <p>Generate columns via CSS within a single element.</p>
+{% highlight css linenos %}
+.content-columns(@width, @count, @gap) {
+  -webkit-column-width: @width;
+     -moz-column-width: @width;
+          column-width: @width;
+  -webkit-column-count: @count;
+     -moz-column-count: @count;
+          column-count: @count;
+  -webkit-column-gap: @gap;
+     -moz-column-gap: @gap;
+          column-gap: @gap;
+}
+{% endhighlight %}
+
+  <h3 id="mixins-gradients">Gradients</h3>
+  <p>Easily turn any two colors into a background gradient. Get more advanced and set a direction, use three colors, or use a radial gradient. With a single mixin you get all the prefixed syntaxes you'll need.</p>
+{% highlight css linenos %}
+#gradient > .vertical(#333, #000);
+#gradient > .horizontal(#333, #000);
+#gradient > .radial(#333, #000);
+{% endhighlight %}
+  <p>You can also specify the angle of a standard two-color, linear gradient:</p>
+{% highlight css linenos %}
+#gradient > .directional(#333, #000, 45deg);
+{% endhighlight %}
+  <p>If you need a barber-stripe style gradient, that's easy, too. Just specify a single color and we'll overlay a translucent white stripe.</p>
+{% highlight css linenos %}
+#gradient > .striped(#333, #000, 45deg);
+{% endhighlight %}
+  <p>Two colors not enough? Go hog wild and add another color into the mix. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color.</p>
+{% highlight css linenos %}
+#gradient > .vertical-three-colors(#777, #333, .25, #000);
+#gradient > .horizontal-three-colors(#777, #333, .25, #000);
+{% endhighlight %}
+  <p><strong>Heads up!</strong> Should you ever need to remove a gradient, be sure to remove any IE-specific <code>filter</code> you may have added. You can do that by using <code>.reset-filter()</code> mixin alignside <code>background-image: none;</code>.</p>
+</section>
+
+
+
+<section>
+  <h2 class="header-divider">Utility mixins</h2>
+  <p>Similar to vendor mixins, utility mixins provide useful often-repeated snippets of CSS.</p>
+
+  <h3 id="mixins-clearfix">Clearfix</h3>
+  <p>Forget adding <code>class="clearfix"</code> to any element and instead add the <code>.clearfix()</code> mixin where appropriate. Uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">micro clearfix</a> from <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallager</a>.</p>
 {% highlight css linenos %}
 .container {
   .clearfix();
 }
 {% endhighlight %}
 
-      <h3 id="font-stacks">Font stacks</h3>
-      <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
+  <h3 id="mixins-centering">Horizontal centering</h3>
+  <p>Quickly center any element within its parent.</p>
 {% highlight css linenos %}
-#font {
-  .sans-serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: @size;
-    font-weight: @weight;
-    line-height: @lineHeight;
-  }
-  .serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
-    font-family: "Georgia", Times New Roman, Times, sans-serif;
-    font-size: @size;
-    font-weight: @weight;
-    line-height: @lineHeight;
-  }
-  .monospace(@weight: normal, @size: 12px, @lineHeight: 20px) {
-    font-family: "Monaco", Courier New, monospace;
-    font-size: @size;
-    font-weight: @weight;
-    line-height: @lineHeight;
-  }
+// Mixin
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Usage
+.container {
+  .center-block();
 }
 {% endhighlight %}
+
+  <h3 id="mixins-sizing">Sizing helpers</h3>
+  <p>Specify the dimensions of an object more easily.</p>
+{% highlight css linenos %}
+// Mixins
+.size(@width: 5px, @height: 5px) {
+  width: @width;
+  height: @height;
+}
+.square(@size: 5px) {
+  .size(@size, @size);
+}
+
+// Usage
+.image { .size(400px, 300px); }
+.avatar { .square(48px); }
+{% endhighlight %}
+
+  <h3 id="mixins-truncating">Truncating text</h3>
+  <p>Easily truncate text with an ellipsis with a single mixin. Requires element to be <code>block</code> or <code>inline-block</code> level.</p>
+{% highlight css linenos %}
+// Mixin
+.text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Usage
+.branch-name {
+  display: inline-block;
+  max-width: 200px;
+  .text-truncate();
+}
+{% endhighlight %}
+
+      <h3 id="mixins-retina-images">Retina images</h3>
+      <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query on the fly. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
+{% highlight css linenos %}
+// Mixin
+.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
+  background-image: url("@{file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: (@width-1x / 2) (@height-1x / 2);
+  }
+}
+
+// Usage
+.jumbotron {
+  .retina-image(/img/jumbotron-bg-1x.png, /img/jumbotron-bg-2x.png, 100px, 100px);
+}
+{% endhighlight %}
+
+
+
 
       <h3 id="grid">Flexible Grid System</h3>
       <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
