@@ -554,7 +554,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-retina-images">Retina images</h3>
-  <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query on the fly. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
+  <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
 {% highlight css linenos %}
 // Mixin
 .retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
@@ -568,13 +568,13 @@ a {
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
     background-image: url("@{file-2x}");
-    background-size: (@width-1x / 2) (@height-1x / 2);
+    background-size: @width-1x @height-1x;
   }
 }
 
 // Usage
 .jumbotron {
-  .retina-image(/img/jumbotron-bg-1x.png, /img/jumbotron-bg-2x.png, 100px, 100px);
+  .retina-image("/img/bg-1x.png", "/img/bg-2x.png", 100px, 100px);
 }
 {% endhighlight %}
 </section>
