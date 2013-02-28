@@ -14,6 +14,8 @@ layout: default
 
 
 
+<div class="container">
+
 <section id="introduction">
   <h2 class="header-divider">Introducing Preboot</h2>
   <p class="lead">Preboot is a comprehensive and flexible collection of LESS utilities. Prior to open-sourcing <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, this project donned the same name. Since then it continues to be only a powerful collection of LESS variables and mixins with no interface components.</p>
@@ -38,6 +40,12 @@ layout: default
         <li><a href="#variables-links">Links</a></li>
         <li><a href="#variables-typography">Typography</a></li>
       </ul>
+      <h3>Grid system</h3>
+      <ul class="toc">
+        <li><a href="#grid-variables">Variables</a></li>
+        <li><a href="#grid-mixins">Mixins</a></li>
+        <li><a href="#grid-example">Example usage</a></li>
+      </ul>
     </div>
     <div class="grid-4">
       <h3>Vendor mixins</h3>
@@ -50,7 +58,6 @@ layout: default
         <li><a href="#mixins-transformations">Transformations</a></li>
         <li><a href="#mixins-opacity">Opacity</a></li>
         <li><a href="#mixins-placeholder">Placeholder</a></li>
-        <li><a href="#mixins-resize">Textarea resize</a></li>
         <li><a href="#mixins-columns">Columns</a></li>
         <li><a href="#mixins-gradients">Gradients</a></li>
       </ul>
@@ -58,14 +65,12 @@ layout: default
     <div class="grid-4">
       <h3>Utility mixins</h3>
       <ul class="toc">
-        <li><a href="#mixins-grid">Grid system</a></li>
         <li><a href="#mixins-clearfix">Clearfix</a></li>
         <li><a href="#mixins-centering">Horizontal centering</a></li>
         <li><a href="#mixins-sizing">Sizing helpers</a></li>
+        <li><a href="#mixins-resize">Textarea resize</a></li>
         <li><a href="#mixins-truncating">Truncating text</a></li>
         <li><a href="#mixins-retina-images">Retina images</a></li>
-        <li><a href="#mixins-helpers">Helpers</a></li>
-        <li><a href="#mixins-flexbox">Flexible Box Module</a></li>
       </ul>
     </div>
   </div>
@@ -131,7 +136,7 @@ layout: default
 // Reassigned variables in LESS
 @alert-message-background: @brand-info;
 .alert {
-  background-color: @brand-info;
+  background-color: @alert-message-background;
 }
 {% endhighlight %}
 
@@ -189,8 +194,95 @@ a {
 @headings-font-family:    inherit; // From @font-family-base
 @headings-font-weight:    500;
 {% endhighlight %}
+</section>
 
 
+
+<section>
+  <h2 class="header-divider">Grid system</h2>
+  <p class="lead">Generate semantic, mobile-first grid layouts with a few variables and mixins, all without superflous markup.</p>
+
+  <h3 id="grid-variables">Grid variables</h3>
+  <p>There are three grid variables that Preboot uses to power the grid mixins.</p>
+{% highlight css linenos %}
+// Specify the number of available columns
+@grid-columns:          12;
+// Inner padding on each side of a column to create gutters
+@grid-column-padding:   15px;
+// Point at which the floats kick in and horizontally align columns
+@grid-float-breakpoint: 768px;
+{% endhighlight %}
+  <p>Customizing these variables should automatically work with any of the grid mixins, so tweak away.</p>
+
+  <h3 id="grid-mixins">Grid mixins</h3>
+  <p>There are three available mixins for each part of a standard grid system:</p>
+  <ul>
+    <li><code>.make-row()</code> provides a wrapper for the columns to align their content via negative margin and clear the floats.</li>
+    <li><code>.make-column(<em>n</em>)</code> is used to generate <em>n</em> number columns as a percentage of the available grid columns (set via variable to 12 by default).</li>
+    <li><code>.make-column-offset(<em>n</em>)</code> pushes a column right by <em>n</em> columns via <code>margin</code>.</li>
+  </ul>
+  <p><strong>Heads up!</strong> These grid columns are mobile first, meaning by default they stack vertically. Floating only kicks in with viewports of 768px or higher.</p>
+{% highlight css linenos %}
+.make-row() {
+  // Negative margin the row out to align the content of columns
+  margin-left: -@grid-column-padding;
+  margin-right: -@grid-column-padding;
+  // Then clear the floated columns
+  .clearfix();
+}
+
+.make-column(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    // Calculate width based on number of columns available
+    width: percentage(@columns / @grid-columns);
+  }
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Set inner padding as gutters instead of margin
+  padding-left: @grid-column-padding;
+  padding-right: @grid-column-padding;
+  // Proper box-model (padding doesn't add to width)
+  .box-sizing(border-box);
+}
+
+.make-column-offset(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    margin-left: percentage(@columns / @grid-columns);
+  }
+}
+{% endhighlight %}
+
+  <h3 id="grid-example">Example usage</h3>
+  <p>Using these mixins to generate columns is easy. <strong>Here's the HTML and CSS of an example implementation.</strong></p>
+{% highlight html linenos %}
+<div class="wrapper">
+  <div class="content-main">
+    ...
+  </div>
+  <div class="content-sidebar">
+    ...
+  </div>
+</div>
+{% endhighlight %}
+{% highlight css linenos %}
+.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-column(8);
+}
+.content-sidebar {
+  .make-column(3);
+  .make-offset(1);
+}
+{% endhighlight %}
+  <p><strong>Need another example?</strong> Our table of contents at the top of the page uses a custom grid as well. In the source docs.less file you'll find it's super lightweight implementation:</p>
+{% highlight css linenos %}
+.row { .make-row(); }
+.grid-4 { .make-column(4); }
+{% endhighlight %}
+  <p><strong>That's it.</strong> No need for additional classes as we just don't need them in this simple of a site.</p>
 </section>
 
 
@@ -324,17 +416,6 @@ a {
 }
 {% endhighlight %}
 
-  <h3 id="mixins-resizable">Resizable textareas</h3>
-  <p>Easily configure the resize options for any textarea, or any other element.</p>
-{% highlight css linenos %}
-.resizable(@direction) {
-  // Options: horizontal, vertical, both
-  resize: @direction;
-  // Safari fix
-  overflow: auto;
-}
-{% endhighlight %}
-
   <h3 id="mixins-columns">Columns</h3>
   <p>Generate columns via CSS within a single element.</p>
 {% highlight css linenos %}
@@ -434,6 +515,17 @@ a {
 .avatar { .square(48px); }
 {% endhighlight %}
 
+  <h3 id="mixins-resizable">Resizable textareas</h3>
+  <p>Easily configure the resize options for any textarea, or any other element.</p>
+{% highlight css linenos %}
+.resizable(@direction) {
+  // Options: horizontal, vertical, both
+  resize: @direction;
+  // Safari fix
+  overflow: auto;
+}
+{% endhighlight %}
+
   <h3 id="mixins-truncating">Truncating text</h3>
   <p>Easily truncate text with an ellipsis with a single mixin. Requires element to be <code>block</code> or <code>inline-block</code> level.</p>
 {% highlight css linenos %}
@@ -476,108 +568,34 @@ a {
   .retina-image(/img/jumbotron-bg-1x.png, /img/jumbotron-bg-2x.png, 100px, 100px);
 }
 {% endhighlight %}
-
-
-
-
-  <h3 id="grid">Flexible Grid System</h3>
-  <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
-  <div class="grid show-grid">
-    <div class="span1">1 Col</div>
-    <div class="span2">2 Cols</div>
-    <div class="span4">4 Cols</div>
-    <div class="span1">1 Col</div>
-    <div class="span1">1 Col</div>
-    <div class="span1">1 Col</div>
-    <div class="span1">1 Col</div>
-  </div>
-<p>The <code>.container</code> and <code>.columns</code> mixins do all the code generation for you, meaning all you need to do is add the markup and call the mixins. Here's the LESS code that's needed to make it all happen, followed by the above example's code.</p>
-<pre>// Grid System
-@gridColumns:       16;
-@gridColumnWidth:   40px;
-@gridGutterWidth:   20px;
-@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
-.container {
-  width: @siteWidth;
-  margin: 0 auto;
-  .clearfix();
-}
-.columns(@columnSpan: 1) {
-  display: inline;
-  float: left;
-  width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
-  margin-left: @gridGutterWidth;
-  &:first-child {
-    margin-left: 0;
-  }
-}
-.offset(@columnOffset: 1) {
-  margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
-}</pre>
-  <p>And here's how you take that and create some sweet ass columns:</p>
-<pre>// Gimme a grid!
-@gridColumns: 11;
-@gridColumnWidth: 40px;
-@gridGutterWidth: 20px;
-div.grid {
-  .container;
-  div.span1 { .columns(1); }
-  div.span2 { .columns(2); }
-  ...
-  div.span11 { .columns(11); }
-}</pre>
-  <p>Boom, columns, baby! Also worth noting is the <code>.offset</code> mixin; with it you can build offset columns just like normal columns for more grid fun.</p>
-
-
-  <h2 id="flexbox">Flexible Box Module</h2>
-  <p></p>
-  <div class="flexbox">
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="box3"></div>
-  </div>
-<pre>
-div.flexbox {
-  #flexbox > .display-box;
-  #flexbox > .box-pack(center);
-  div {
-    margin: 5px;
-    #translucent > .background(@black,.25);
-    .square(50px);
-  }
-  div.box2 {
-    #flexbox > .box-flex(1);
-  }
-}
-</pre>
-
 </section>
 
 
 
-    <section>
-      <h2>How to Use</h2>
-      <h3>Rolling Your Own</h3>
-      <p>Getting up and running with LESS and Bootstrap is straightforward. Here's the 1-2-3 rundown to rolling your own install of Bootstrap.</p>
-      <ol>
-        <li><a href="https://github.com/cloudhead/less.js" target="_blank">Download</a> LESS and Bootstrap.</li>
-        <li>Add the LESS javascript file in your <code>head</code> and create a new .less file that imports bootstrap.less.</li>
-        <li>Start writing super awesome CSS!</li>
-      </ol>
-      <p>That's it&mdash;all you need to do is include a javascript and less file and you're ready to rock. But wait, there's more!</p>
+  <section>
+    <h2>How to Use</h2>
+    <h3>Rolling Your Own</h3>
+    <p>Getting up and running with LESS and Bootstrap is straightforward. Here's the 1-2-3 rundown to rolling your own install of Bootstrap.</p>
+    <ol>
+      <li><a href="https://github.com/cloudhead/less.js" target="_blank">Download</a> LESS and Bootstrap.</li>
+      <li>Add the LESS javascript file in your <code>head</code> and create a new .less file that imports bootstrap.less.</li>
+      <li>Start writing super awesome CSS!</li>
+    </ol>
+    <p>That's it&mdash;all you need to do is include a javascript and less file and you're ready to rock. But wait, there's more!</p>
 
-      <h3>Fully Bootstrapped</h3>
-      <p>Looking for a simpler start? Look no further than this very page. It's included as a fully functional demo of what's possible with LESS and Bootstrap that you can play around with or use as a template for something more.</p>
-      <p>It's licensed under the Creative Commons, so you're set to do what you please with it so long as you give me a shoutout or a link back here (it's much appreciated, and thanks in advance!).</p>
-    </section>
+    <h3>Fully Bootstrapped</h3>
+    <p>Looking for a simpler start? Look no further than this very page. It's included as a fully functional demo of what's possible with LESS and Bootstrap that you can play around with or use as a template for something more.</p>
+    <p>It's licensed under the Creative Commons, so you're set to do what you please with it so long as you give me a shoutout or a link back here (it's much appreciated, and thanks in advance!).</p>
+  </section>
 
-    <section>
-      <h2>Download</h2>
-      <p>Bootstrap is available for download right from <a href="http://github.com/" target="_blank">GitHub</a>, the best code hosting and version control service out there. Included in the zip are the latest version of LESS, Bootstrap.less, and a demo page.</p>
-      <p><a href="https://github.com/markdotto/Bootstrap.less/zipball/master" class="purple button">Download Bootstrap.less</a> <small>or <a href="http://github.com/markdotto/Bootstrap.less" target="_blank">check it out on GitHub</a></small></p>
-    </section>
+  <section>
+    <h2>Download</h2>
+    <p>Bootstrap is available for download right from <a href="http://github.com/" target="_blank">GitHub</a>, the best code hosting and version control service out there. Included in the zip are the latest version of LESS, Bootstrap.less, and a demo page.</p>
+    <p><a href="https://github.com/markdotto/Bootstrap.less/zipball/master" class="purple button">Download Bootstrap.less</a> <small>or <a href="http://github.com/markdotto/Bootstrap.less" target="_blank">check it out on GitHub</a></small></p>
+  </section>
 
 </div>
+
 
 <footer>
   <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>

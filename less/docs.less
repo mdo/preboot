@@ -25,7 +25,7 @@ body {
 body {
   padding: 0;
   font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
   color: #555;
@@ -66,19 +66,15 @@ p {
 }
 ol,
 ul {
-  margin: 0 0 15px;
+  margin: 0 0 15px 25px;
   padding: 0;
 }
 
 .lead {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.25;
   color: @black-40;
 }
-
-
-
-// Code!
 
 // Inline and block code styles
 code,
@@ -126,7 +122,7 @@ pre {
 .highlight {
   padding: 14px;
   margin-bottom: 20px;
-  line-height: 25px; // Pygments hates unitless line-height for some reason
+  line-height: 20px; // Pygments hates unitless line-height for some reason
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
@@ -148,6 +144,10 @@ pre {
   color: #bebec5;
 }
 
+// Super simple grid
+.row { .make-row(); }
+.grid-4 { .make-column(4); }
+
 
 // Neato divider between headers and content
 .header-divider {
@@ -166,51 +166,27 @@ pre {
 
 // Shift content over for the side panel
 .container {
-  margin-left: 30%;
-  margin-right: 10%;
+  padding-left: 20px;
+  padding-right: 20px;
   max-width: 760px;
 }
 
 // Side panel
 .masthead {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 5;
-  width: 25%;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   background-attachment: fixed;
   #gradient > .vertical(darken(saturate(@purple, 10%), 15%), darken(@blue, 5%));
 }
-.masthead:after {
-  position: absolute;
-  top: -20px;
-  right: 0;
-  bottom: -20px;
-  left: -10px;
-  z-index: 10;
-  display: block;
-  content: " ";
-  box-shadow: inset -5px 0 25px rgba(0,0,0,.3);
-}
-
 .masthead-inner {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 15;
-  padding: 40px;
+  padding: 30px;
 }
-
 .masthead h1 {
+  margin-top: 0;
   font-size: 60px;
   color: #fff;
   letter-spacing: -1px;
 }
-
 .masthead .header-divider:after {
   width: 50%;
   background-color: #fff;
@@ -219,6 +195,9 @@ pre {
 }
 
 // Table of contents
+.toc {
+  margin-left: 0;
+}
 .toc li {
   display: block;
 }
@@ -235,17 +214,14 @@ pre {
 
 // Colors
 .color-swatches {
-  height: 80px;
-  margin-bottom: 20px;
+  margin: 0 -5px 20px;
+  .clearfix();
 }
 .color-swatch {
   float: left;
   width: 80px;
   height: 80px;
-
-  & + .color-swatch {
-    margin-left: 5px;
-  }
+  margin: 5px;
 
   &.black-10 { background-color: @black-10; }
   &.black-20 { background-color: @black-20; }
@@ -264,46 +240,6 @@ pre {
   &.brand-info    { background-color: @brand-info;}
 }
 
-
-// Scaffolding
-/*header,
-section,
-footer {
-  width: 640px;
-  margin: 0 auto;
-  display: block;
-}
-header,
-section {
-  padding-bottom: 40px;
-  margin-bottom: 50px;
-  @shadow: inset 0 -1px 0 rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-  .box-shadow(@shadow);
-}
-header {
-  h2 {
-    font-weight: 200;
-    line-height: 35px;
-  }
-  p {
-    float: right;
-    margin: 15px 0 0;
-  }
-}
-footer {
-  text-shadow: 0 1px 1px rgba(0,0,0,.2);
-  p {
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 13px;
-    span {
-      opacity: .5;
-    }
-  }
-}
-*/
-
-
 // Buttons
 .btn {
   display: inline-block;
@@ -311,9 +247,6 @@ footer {
   font-weight: 600;
   line-height: 1;
   letter-spacing: -1px;
-  /*color: #fff;*/
-  /*text-shadow: 0 -1px 0 rgba(0,0,0,.25);*/
-  /*#gradient > .vertical(@purple, darken(saturate(@purple, 10%), 10%));*/
   background-color: #fff;
   color: @purple;
   border: 1px solid #ccc;
@@ -333,41 +266,52 @@ footer {
 }
 
 
-
-// Grid example
-@gridColumns: 11;
-@gridColumnWidth: 40px;
-@gridGutterWidth: 20px;
-div.grid {
-  .container();
-  div.span1 { .columns(1); }
-  div.span2 { .columns(2); }
-  div.span3 { .columns(3); }
-  div.span4 { .columns(4); }
-  div.span5 { .columns(5); }
-  &.show-grid {
-    /*#translucent > .background(@black,.25);*/
-    height: 200px;
-    margin-bottom: 20px;
-    div {
-      /*#translucent > .background(@black,.25);*/
-      height: 200px;
-      text-align: center;
-      /*#font > .sans-serif(normal,12px,200px);*/
-    }
+// Fixed masthead with larger viewports
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
   }
-}
-
-// Flexbox example
-div.flexbox {
-  #flexbox > .display-box;
-  #flexbox > .box-pack(center);
-  div {
-    margin: 5px;
-    /*#translucent > .background(@black,.25);*/
-    .square(50px);
+  .highlight {
+    line-height: 25px;
   }
-  div.box2 {
-    #flexbox > .box-flex(1);
+  .lead {
+    font-size: 24px;
+  }
+  // Push over the container contents to make room
+  .container {
+    margin-left: 30%;
+    margin-right: 10%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  // The fixins
+  .masthead {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    width: 25%;
+  }
+  // Generate a super slick shadow for depth
+  .masthead:after {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    bottom: -20px;
+    left: -10px;
+    z-index: 10;
+    display: block;
+    content: " ";
+    box-shadow: inset -5px 0 25px rgba(0,0,0,.3);
+  }
+  // Doc the text to the bottom
+  .masthead-inner {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    padding: 40px;
   }
 }

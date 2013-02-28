@@ -57,16 +57,50 @@
 // Forms
 @input-color-placeholder: lighten(@text-color, 25%);
 
-// Griditude
-@gridColumns:       16;
-@gridColumnWidth:   40px;
-@gridGutterWidth:   20px;
-@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+// Grid
+// Used with the grid mixins below
+@grid-columns:          12;
+@grid-column-padding:   15px; // Left and right inner padding
+@grid-float-breakpoint: 768px;
 
 
 
 //
-// Mixins
+// Grid system
+// --------------------------------------------------
+
+// Grid
+.make-row() {
+  // Negative margin the row out to align the content of columns
+  margin-left: -@grid-column-padding;
+  margin-right: -@grid-column-padding;
+  // Then clear the floated columns
+  .clearfix();
+}
+.make-column(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    // Calculate width based on number of columns available
+    width: percentage(@columns / @grid-columns);
+  }
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Set inner padding as gutters instead of margin
+  padding-left: @grid-column-padding;
+  padding-right: @grid-column-padding;
+  // Proper box-model (padding doesn't add to width)
+  .box-sizing(border-box);
+}
+.make-column-offset(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    margin-left: percentage(@columns / @grid-columns);
+  }
+}
+
+
+
+//
+// Mixins: vendor prefixes
 // --------------------------------------------------
 
 // Box sizing
@@ -223,145 +257,6 @@
           hyphens: @mode;
 }
 
-// Clearfix
-//
-// Source: http://nicolasgallagher.com/micro-clearfix-hack/
-//
-// For modern browsers
-// 1. The space content is one way to avoid an Opera bug when the
-//    contenteditable attribute is included anywhere else in the document.
-//    Otherwise it causes space to appear at the top and bottom of elements
-//    that are clearfixed.
-// 2. The use of `table` rather than `block` is only necessary if using
-//    `:before` to contain the top-margins of child elements.
-.clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-// Center-align a block level element
-.center-block() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Sizing shortcuts
-.size(@width: 5px, @height: 5px) {
-  width: @width;
-  height: @height;
-}
-.square(@size: 5px) {
-  .size(@size, @size);
-}
-
-// Text overflow
-//
-// Requires inline-block or block for proper styling
-.text-truncate() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-// Retina images
-//
-// Retina background-image support with non-retina fall back
-.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
-  background-image: url("@{file-1x}");
-
-  @media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (   min--moz-device-pixel-ratio: 2),
-  only screen and (     -o-min-device-pixel-ratio: 2/1),
-  only screen and (        min-device-pixel-ratio: 2),
-  only screen and (                min-resolution: 192dpi),
-  only screen and (                min-resolution: 2dppx) {
-    background-image: url("@{file-2x}");
-    background-size: (@width-1x / 2) (@height-1x / 2);
-  }
-}
-
-
-
-// Grid System
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  .clearfix();
-}
-.columns(@columnSpan: 1) {
-  display: inline;
-  float: left;
-  width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
-  margin-left: @gridGutterWidth;
-  &:first-child {
-    margin-left: 0;
-  }
-}
-.offset(@columnOffset: 1) {
-  margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
-}
-
-
-// Mobile-first defaults
-.row {
-  margin-left:  -15px;
-  margin-right: -15px;
-  .clearfix();
-}
-[class^="grid-"] {
-  float: left;
-  min-height: 1px; // Prevent columns from collapsing when empty
-  padding-left:  15px;
-  padding-right: 15px;
-  // Proper box-model (padding doesn't add to width)
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.grid-1  { width: 8.333333333%; }
-.grid-2  { width: 16.666666667%; }
-.grid-3  { width: 25%; }
-.grid-4  { width: 33.333333333%; }
-.grid-5  { width: 41.666666667%; }
-.grid-6  { width: 50%; }
-.grid-7  { width: 58.333333333%; }
-.grid-8  { width: 66.666666667%; }
-.grid-9  { width: 75%; }
-.grid-10 { width: 83.333333333%; }
-.grid-11 { width: 91.666666667%; }
-
-.grid-offset-1 { margin-left: 8.333333333%; }
-.grid-offset-2 { margin-left: 16.666666667%; }
-.grid-offset-3 { margin-left: 25%; }
-.grid-offset-4 { margin-left: 33.333333333%; }
-.grid-offset-5 { margin-left: 41.666666667%; }
-.grid-offset-6 { margin-left: 50%; }
-.grid-offset-7 { margin-left: 58.333333333%; }
-.grid-offset-8 { margin-left: 66.666666667%; }
-
-table [class^="span"] {
-  float: none;
-  padding: 0;
-}
-
-
-
-
-
-
-
-
-
-
 // Gradients
 #gradient {
   .horizontal(@startColor: #555, @endColor: #333) {
@@ -438,54 +333,72 @@ table [class^="span"] {
 }
 
 
-// CSS3 Flexible Box Module
-#flexbox {
-  // #flexbox > .display-box; must be used along with other flexbox mixins
-  .display-box {
-    display: -moz-box;
-    display: -webkit-box;
-    display: box;
+
+//
+// Mixins: utilities
+// --------------------------------------------------
+
+// Clearfix
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
   }
-  // Box align [ start | end | center | baseline | stretch ]
-  .box-align(@alignment: stretch) {
-    -moz-box-align: @alignment;
-    -webkit-box-align: @alignment;
-    box-align: @alignment;
+  &:after {
+    clear: both;
   }
-  // Box direction [ normal | reverse | inherit ]
-  .box-direction(@direction: normal) {
-    -moz-box-direction: @direction;
-    -webkit-box-direction: @direction;
-    box-direction: @direction;
-  }
-  // Box flex [ integer ]
-  .box-flex(@flex: 0) {
-    -moz-box-flex: @flex;
-    -webkit-box-flex: @flex;
-    box-flex: @flex;
-  }
-  // Box flex group [ integer ]
-  .box-flex-group(@group: 1) {
-    -moz-box-flex-group: @group;
-    -webkit-box-flex-group: @group;
-    box-flex-group: @group;
-  }
-  // Box orientation [ horizontal | vertical | inline-axis | block-axis | inherit ]
-  .box-orient(@orientation: horizontal) {
-    -moz-box-orient: @orientation;
-    -webkit-box-orient: @orientation;
-    box-orient: @orientation;
-  }
-  // Box ordinal group [ integer ]
-  .box-ordinal-group(@group: 1) {
-    -moz-box-ordinal-group: @group;
-    -webkit-box-ordinal-group:@group;
-    box-flex-ordinal-group: @group;
-  }
-  // Box pack  [ start | end | center | justify ]
-  .box-pack(@pack: start) {
-    -moz-box-pack: @pack;
-    -webkit-box-pack: @pack;
-    box-pack: @pack;
+}
+
+// Center-align a block level element
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Sizing shortcuts
+.size(@width: 5px, @height: 5px) {
+  width: @width;
+  height: @height;
+}
+.square(@size: 5px) {
+  .size(@size, @size);
+}
+
+// Text overflow
+//
+// Requires inline-block or block for proper styling
+.text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Retina images
+//
+// Retina background-image support with non-retina fall back
+.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
+  background-image: url("@{file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: (@width-1x / 2) (@height-1x / 2);
   }
 }
