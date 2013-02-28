@@ -1006,7 +1006,6 @@ pre code {
 
 .masthead h1 {
   margin-top: 0;
-  font-size: 60px;
   letter-spacing: -1px;
   color: #fff;
 }
@@ -1162,7 +1161,7 @@ pre code {
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
   body {
     font-size: 18px;
   }
@@ -1208,6 +1207,11 @@ pre code {
     bottom: 0;
     left: 0;
     z-index: 15;
-    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .masthead h1 {
+    font-size: 60px;
   }
 }

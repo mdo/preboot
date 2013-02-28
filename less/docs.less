@@ -192,7 +192,6 @@ pre {
 }
 .masthead h1 {
   margin-top: 0;
-  font-size: 60px;
   color: #fff;
   letter-spacing: -1px;
 }
@@ -295,8 +294,7 @@ pre {
 
 
 // Responsive
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 820px) {
   body {
     font-size: 18px;
   }
@@ -311,7 +309,6 @@ pre {
     display: inline-block;
     margin-bottom: 0;
   }
-
 
   // Push over the container contents to make room
   .container {
@@ -349,6 +346,12 @@ pre {
     bottom: 0;
     left: 0;
     z-index: 15;
-    padding: 40px;
+  }
+}
+
+// Larger responsive
+@media screen and (min-width: 1100px) {
+  .masthead h1 {
+    font-size: 60px;
   }
 }
