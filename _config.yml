@@ -1,2 +1,2 @@
 pygments:     true
-ignore:       [/less]
+exclude:       ["Makefile", "README.md", "less", "node_modules"]
