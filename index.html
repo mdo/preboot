@@ -452,8 +452,8 @@ a {
 }
 {% endhighlight %}
 
-      <h3 id="mixins-retina-images">Retina images</h3>
-      <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query on the fly. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
+  <h3 id="mixins-retina-images">Retina images</h3>
+  <p>Specify two image paths and the @1x image dimensions, and Preboot will provide an @2x media query on the fly. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single block.</strong></p>
 {% highlight css linenos %}
 // Mixin
 .retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
@@ -480,18 +480,18 @@ a {
 
 
 
-      <h3 id="grid">Flexible Grid System</h3>
-      <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
-      <div class="grid show-grid">
-        <div class="span1">1 Col</div>
-        <div class="span2">2 Cols</div>
-        <div class="span4">4 Cols</div>
-        <div class="span1">1 Col</div>
-        <div class="span1">1 Col</div>
-        <div class="span1">1 Col</div>
-        <div class="span1">1 Col</div>
-      </div>
-    <p>The <code>.container</code> and <code>.columns</code> mixins do all the code generation for you, meaning all you need to do is add the markup and call the mixins. Here's the LESS code that's needed to make it all happen, followed by the above example's code.</p>
+  <h3 id="grid">Flexible Grid System</h3>
+  <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
+  <div class="grid show-grid">
+    <div class="span1">1 Col</div>
+    <div class="span2">2 Cols</div>
+    <div class="span4">4 Cols</div>
+    <div class="span1">1 Col</div>
+    <div class="span1">1 Col</div>
+    <div class="span1">1 Col</div>
+    <div class="span1">1 Col</div>
+  </div>
+<p>The <code>.container</code> and <code>.columns</code> mixins do all the code generation for you, meaning all you need to do is add the markup and call the mixins. Here's the LESS code that's needed to make it all happen, followed by the above example's code.</p>
 <pre>// Grid System
 @gridColumns:       16;
 @gridColumnWidth:   40px;
@@ -514,7 +514,7 @@ a {
 .offset(@columnOffset: 1) {
   margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) !important;
 }</pre>
-    <p>And here's how you take that and create some sweet ass columns:</p>
+  <p>And here's how you take that and create some sweet ass columns:</p>
 <pre>// Gimme a grid!
 @gridColumns: 11;
 @gridColumnWidth: 40px;
@@ -526,34 +526,16 @@ div.grid {
   ...
   div.span11 { .columns(11); }
 }</pre>
-      <p>Boom, columns, baby! Also worth noting is the <code>.offset</code> mixin; with it you can build offset columns just like normal columns for more grid fun.</p>
+  <p>Boom, columns, baby! Also worth noting is the <code>.offset</code> mixin; with it you can build offset columns just like normal columns for more grid fun.</p>
 
-      <h2 id="helpers">Miscellaneous helpers</h2>
-      <p>A few helper methods that save time for common sizing and alignment patterns.</p>
-<pre>// Center-align a block level element
-.center-block {
-  display: block;
-  margin: 0 auto;
-}
 
-// Sizing shortcuts
-.size(@height: 5px, @width: 5px) {
-  height: @height;
-  width: @width;
-}
-.square(@size: 5px) {
-  .size(@size, @size);
-}
-</pre>
-    </section>
-    <section>
-      <h2 id="flexbox">Flexible Box Module</h2>
-      <p></p>
-      <div class="flexbox">
-        <div class="box1"></div>
-        <div class="box2"></div>
-        <div class="box3"></div>
-      </div>
+  <h2 id="flexbox">Flexible Box Module</h2>
+  <p></p>
+  <div class="flexbox">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+  </div>
 <pre>
 div.flexbox {
   #flexbox > .display-box;
@@ -568,7 +550,10 @@ div.flexbox {
   }
 }
 </pre>
-    </section>
+
+</section>
+
+
 
     <section>
       <h2>How to Use</h2>
