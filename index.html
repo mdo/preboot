@@ -13,6 +13,7 @@ layout: default
 </header>
 
 
+
 <section id="introduction">
   <h2 class="header-divider">Introducing Preboot</h2>
   <p>Preboot is a comprehensive and flexible collection of LESS utilities. Prior to open-sourcing <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, this project donned the same name. Since then it continues to be only a powerful collection of LESS variables and mixins with no interface components. </p>
@@ -24,10 +25,20 @@ layout: default
 </section>
 
 
+
 <section id="table-of-contents">
   <h2 class="header-divider">What's included</h2>
   <p>Here's the rundown of what you can find in Preboot:</p>
   <div class="row">
+    <div class="grid-6">
+      <h3>Variables</h3>
+      <ul>
+        <li><a href="#variables-colors">Color</a></li>
+        <li><a href="#variables-scaffolding">Scaffolding</a></li>
+        <li><a href="#variables-links">Links</a></li>
+        <!-- <li><a href="#baseline">Baseline</a></li> -->
+      </ul>
+    </div>
     <div class="grid-6">
       <h3>Mixins</h3>
       <ul>
@@ -43,17 +54,101 @@ layout: default
         <li><a href="#flexbox">Flexible Box Module</a></li>
       </ul>
     </div>
-    <div class="grid-6">
-      <h3>Variables</h3>
-      <ul>
-        <li><a href="#links">Links</a></li>
-        <li><a href="#scheme">Color scheme</a></li>
-        <li><a href="#baseline">Baseline</a></li>
-      </ul>
-    </div>
   </div>
 </section>
 
+
+
+<section>
+  <h2 class="header-divider" id="variables">Variables</h2>
+  <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
+
+
+  <h3 id="variables-color">Colors</h3>
+  <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to semantic values.</p>
+  <div class="color-swatches">
+    <div class="color-swatch black-10"></div>
+    <div class="color-swatch black-20"></div>
+    <div class="color-swatch black-30"></div>
+    <div class="color-swatch black-40"></div>
+    <div class="color-swatch black-50"></div>
+    <div class="color-swatch black-60"></div>
+    <div class="color-swatch black-70"></div>
+    <div class="color-swatch black-80"></div>
+    <div class="color-swatch black-90"></div>
+  </div>
+{% highlight css linenos %}
+// Grayscale
+@black-10:                darken(#fff, 10%);
+@black-20:                darken(#fff, 20%);
+@black-30:                darken(#fff, 30%);
+@black-40:                darken(#fff, 40%);
+@black-50:                darken(#fff, 50%);
+@black-60:                darken(#fff, 60%);
+@black-70:                darken(#fff, 70%);
+@black-80:                darken(#fff, 80%);
+@black-90:                darken(#fff, 90%);
+{% endhighlight %}
+
+  <div class="color-swatches">
+    <div class="color-swatch brand-primary"></div>
+    <div class="color-swatch brand-success"></div>
+    <div class="color-swatch brand-warning"></div>
+    <div class="color-swatch brand-danger"></div>
+    <div class="color-swatch brand-info"></div>
+  </div>
+{% highlight css linenos %}
+// Semantic branding colors
+@brand-primary:           #428bca;
+@brand-success:           #5cb85c;
+@brand-warning:           #f0ad4e;
+@brand-danger:            #d9534f;
+@brand-info:              #5bc0de;
+{% endhighlight %}
+
+
+  <h3 id="links">Links</h3>
+  <p>Easily style your links with the right color with only one value.</p>
+{% highlight css linenos %}
+// Links
+@linkColor:         #8b59c2;
+@linkColorHover:    darken(@linkColor, 10);
+{% endhighlight %}
+  <p>Note that the <code>@linkColorHover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
+  <h3 id="scheme">Color Scheme</h3>
+  <p>Get a jump on better color management within your code with these awesome variables. No more guessing hex values throughout a project.</p>
+{% highlight css linenos %}
+// Grays
+@white:             #fff;
+@grayLighter:       #ccc;
+@grayLight:         #777;
+@gray:              #555;
+@grayDark:          #333;
+@black:             #000;
+
+// Accent Colors
+@blue:              #08b5fb;
+@green:             #46a546;
+@red:               #9d261d;
+@yellow:            #ffc40d;
+@orange:            #f89406;
+@pink:              #c3325f;
+@purple:            #7a43b6;
+{% endhighlight %}
+      <h3 id="baseline">Baseline</h3>
+      <p>Though not fully utilized within Bootstrap, <code>@baseline</code> will help simplify your line-heights and vertical rhythm in any project.</p>
+{% highlight css linenos %}
+@baseline:          20px;
+{% endhighlight %}
+      <p>Using it is simple:</p>
+{% highlight css linenos %}
+div#exampleBlock {
+  margin-bottom: @baseline * 2; // 40px
+  padding: @baseline; // 20px
+  line-height: @baseline; // 20px
+}
+{% endhighlight %}
+    </section>
 
 
     <section id="mixins">
@@ -103,15 +198,15 @@ layout: default
 #gradient > .vertical-three-colors(#777,#333,.25,#000);
 #gradient > .vertical-three-colors(@blue,@red,@purple);
 {% endhighlight %}
-      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
+      <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors()</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
 
       <h3 id="transitions">Transitions</h3>
       <p>Elegantly transition elements in style with a single rule.</p>
 {% highlight css linenos %}
 .transition(@transition: all linear .2s) {
   -webkit-transition: @transition;
-  -moz-transition: @transition;
-  transition: @transition;
+     -moz-transition: @transition;
+          transition: @transition;
 }
 {% endhighlight %}
       <p>Example transitions could include fading input elements on focus (instead of the default <code>outline</code>), animating logos on hover, and even animating link hovers.</p>
@@ -120,22 +215,11 @@ layout: default
       <p>Forget adding <code>.clearfix</code> to all your divs and just add the mixin where appropriate.</p>
 {% highlight css linenos %}
 .container {
-  .clearfix;
+  .clearfix();
 }
 {% endhighlight %}
 
-      <h3 id="translucency">Make Any Color Translucent</h3>
-      <p>While RGBA is great, LESS only has a color conversion tool that changes any color to HSL. By doing so, it allows us to add an extra alpha layer (just like RGB to RGBA). Just call the mixin, select a color, and add the alpha transparency (a decimal value from 0 to 1).</p>
-{% highlight css linenos %}
-  .container {
-  #translucent > .background(@blue, 0.5);
-  div {
-    #translucent > .background(#900, 0.5);
-  }
-}
-{% endhighlight %}
-
-      <h3 id="font-stacks">Font Stacks</h3>
+      <h3 id="font-stacks">Font stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
 {% highlight css linenos %}
 #font {
@@ -249,47 +333,6 @@ div.flexbox {
 }
 </pre>
     </section>
-    <section>
-      <h2 id="variables">Variables</h2>
-      <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
-      <h3 id="links">Links</h3>
-      <p>Easily style your links with the right color with only one value.</p>
-<pre>// Links
-@linkColor:         #8b59c2;
-@linkColorHover:    darken(@linkColor, 10);
-</pre>
-      <p>Note that the <code>@linkColorHover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
-      <h3 id="scheme">Color Scheme</h3>
-      <p>Get a jump on better color management within your code with these awesome variables. No more guessing hex values throughout a project.</p>
-<pre>// Grays
-@white:             #fff;
-@grayLighter:       #ccc;
-@grayLight:         #777;
-@gray:              #555;
-@grayDark:          #333;
-@black:             #000;
-
-// Accent Colors
-@blue:              #08b5fb;
-@green:             #46a546;
-@red:               #9d261d;
-@yellow:            #ffc40d;
-@orange:            #f89406;
-@pink:              #c3325f;
-@purple:            #7a43b6;
-</pre>
-      <h3 id="baseline">Baseline</h3>
-      <p>Though not fully utilized within Bootstrap, <code>@baseline</code> will help simplify your line-heights and vertical rhythm in any project.</p>
-<pre>@baseline:          20px;</pre>
-      <p>Using it is simple:</p>
-<pre>div#exampleBlock {
-  margin-bottom: @baseline * 2; // 40px
-  padding: @baseline; // 20px
-  line-height: @baseline; // 20px
-}
-</pre>
-    </section>
-
 
     <section>
       <h2>How to Use</h2>

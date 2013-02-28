@@ -4,9 +4,74 @@
  */
 
 
+//
+// Variables
+// --------------------------------------------------
+
+// Grayscale
+// Black at various percent opacities when computed against a solid white background
+@black-10:                 darken(#fff, 10%);
+@black-20:                 darken(#fff, 20%);
+@black-30:                 darken(#fff, 30%);
+@black-40:                 darken(#fff, 40%);
+@black-50:                 darken(#fff, 50%);
+@black-60:                 darken(#fff, 60%);
+@black-70:                 darken(#fff, 70%);
+@black-80:                 darken(#fff, 80%);
+@black-90:                 darken(#fff, 90%);
+
+// Accent Colors
+@blue:              #08b5fb;
+@green:             #46a546;
+@red:               #9d261d;
+@yellow:            #ffc40d;
+@orange:            #f89406;
+@pink:              #c3325f;
+@purple:            #7a43b6;
+
+
+@gray-darker:             #222;
+@gray-dark:               #333;
+@gray:                    #555;
+@gray-light:              #999;
+@gray-lighter:            #eee;
+
+// Brand colors
+@brand-primary:           #428bca;
+@brand-success:           #5cb85c;
+@brand-warning:           #f0ad4e;
+@brand-danger:            #d9534f;
+@brand-info:              #5bc0de;
+
+// Scaffolding
+@body-background:         #fff;
+@text-color:              @gray-dark;
+
+// Links
+@link-color:              @brand-primary;
+@link-color-hover:        darken(@link-color, 15%);
+
+// Typography
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          14px;
+@font-size-large:         @font-size-base * 1.25; // ~18px
+@font-size-small:         @font-size-base * 0.85; // ~12px
+@font-size-mini:          @font-size-base * 0.75; // ~11px
+
+@line-height-base:        20px;
+
+@headings-font-family:    inherit; // empty to use BS default, @font-family-base
+@headings-font-weight:    500;
+
+
+
 /* Variables
 -------------------------------------------------- */
-
+/*
 // Links
 @linkColor:         #8b59c2;
 @linkColorHover:    darken(@linkColor, 10);
@@ -30,6 +95,7 @@
 
 // Baseline grid
 @baseline:          20px;
+*/
 
 // Griditude
 @gridColumns:       16;
