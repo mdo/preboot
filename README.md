@@ -38,4 +38,4 @@ Disclaimer: Preboot v1 (Bootstrap.less) was released under a Creative Commons li
 
 ## Copyright and license
 
-MIT.
+[MIT](LICENSE.MD)
