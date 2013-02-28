@@ -84,49 +84,61 @@ layout: default
 
       <h3 id="box-shadow">Box (Drop) shadows</h3>
       <p>Give any element some depth in all the best browsers with a single rule. Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
-<pre>.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+
+{% highlight css linenos %}
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow;
   box-shadow: @shadow;
-}</pre>
+}
+{% endhighlight %}
 
       <h3 id="gradients">Gradients</h3>
       <p>Take any two colors and turn them into a most bodacious gradient of awesome. They even work with preset variables (see below) and RGBA colors. You can use vertical or horizontal gradients with the following lines of code:</p>
-<pre>#gradient > .vertical(#333,#000);
-#gradient > .horizontal(@blue,@red);</pre>
+{% highlight css linenos %}
+#gradient > .vertical(#333,#000);
+#gradient > .horizontal(@blue,@red);
+{% endhighlight %}
       <p>Two colors not enough? Go hog wild and add another color into the mix with a .three-color-gradient. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color. Donezo.</p>
-<pre>#gradient > .vertical-three-colors(#777,#333,.25,#000);
-#gradient > .vertical-three-colors(@blue,@red,@purple);</pre>
+{% highlight css linenos %}
+#gradient > .vertical-three-colors(#777,#333,.25,#000);
+#gradient > .vertical-three-colors(@blue,@red,@purple);
+{% endhighlight %}
       <p>Go easy on those three color gradients though&mdash;they can get out of hand quick. Also, if you're feeling a little bit crazy, go ahead and take the <code>.vertical-three-colors</code> and expand them to four and five colors. Just don't let it get out of hand.</p>
 
       <h3 id="transitions">Transitions</h3>
       <p>Elegantly transition elements in style with a single rule.</p>
-<pre>.transition(@transition: all linear .2s) {
+{% highlight css linenos %}
+.transition(@transition: all linear .2s) {
   -webkit-transition: @transition;
   -moz-transition: @transition;
   transition: @transition;
-}</pre>
+}
+{% endhighlight %}
       <p>Example transitions could include fading input elements on focus (instead of the default <code>outline</code>), animating logos on hover, and even animating link hovers.</p>
 
       <h3 id="clearfix">Simple Clearfix</h3>
       <p>Forget adding <code>.clearfix</code> to all your divs and just add the mixin where appropriate.</p>
-<pre>.container {
+{% highlight css linenos %}
+.container {
   .clearfix;
 }
-</pre>
+{% endhighlight %}
 
       <h3 id="translucency">Make Any Color Translucent</h3>
       <p>While RGBA is great, LESS only has a color conversion tool that changes any color to HSL. By doing so, it allows us to add an extra alpha layer (just like RGB to RGBA). Just call the mixin, select a color, and add the alpha transparency (a decimal value from 0 to 1).</p>
-<pre>.container {
+{% highlight css linenos %}
+  .container {
   #translucent > .background(@blue, 0.5);
   div {
     #translucent > .background(#900, 0.5);
   }
 }
-</pre>
+{% endhighlight %}
 
       <h3 id="font-stacks">Font Stacks</h3>
       <p>Style an element's text quickly and easily with flexible built-in serif, sans-serif, and monospace font stacks.</p>
-<pre>#font {
+{% highlight css linenos %}
+#font {
   .sans-serif(@weight: normal, @size: 14px, @lineHeight: 20px) {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: @size;
@@ -145,7 +157,8 @@ layout: default
     font-weight: @weight;
     line-height: @lineHeight;
   }
-}</pre>
+}
+{% endhighlight %}
 
       <h3 id="grid">Flexible Grid System</h3>
       <p>Love grids? Get yourself on the fast track to an awesomely flexible grid system. Set the number of columns, the column width, and the column gutter width. Do note though that these columns won't work in IE6&mdash;they're designed to use the minimum amount of CSS, meaning they employ <code>:first-child</code> and have no set container widths.</p>
