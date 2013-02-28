@@ -63,7 +63,6 @@ layout: default
   <h2 class="header-divider" id="variables">Variables</h2>
   <p>Variables have never existed in CSS, but with LESS, they're all up in da club. Bootstrap includes a set of great colors perfect for just about any project as an example of how to use variables.</p>
 
-
   <h3 id="variables-color">Colors</h3>
   <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to semantic values.</p>
   <div class="color-swatches">
@@ -79,15 +78,15 @@ layout: default
   </div>
 {% highlight css linenos %}
 // Grayscale
-@black-10:                darken(#fff, 10%);
-@black-20:                darken(#fff, 20%);
-@black-30:                darken(#fff, 30%);
-@black-40:                darken(#fff, 40%);
-@black-50:                darken(#fff, 50%);
-@black-60:                darken(#fff, 60%);
-@black-70:                darken(#fff, 70%);
-@black-80:                darken(#fff, 80%);
-@black-90:                darken(#fff, 90%);
+@black-10: darken(#fff, 10%);
+@black-20: darken(#fff, 20%);
+@black-30: darken(#fff, 30%);
+@black-40: darken(#fff, 40%);
+@black-50: darken(#fff, 50%);
+@black-60: darken(#fff, 60%);
+@black-70: darken(#fff, 70%);
+@black-80: darken(#fff, 80%);
+@black-90: darken(#fff, 90%);
 {% endhighlight %}
 
   <div class="color-swatches">
@@ -99,48 +98,46 @@ layout: default
   </div>
 {% highlight css linenos %}
 // Semantic branding colors
-@brand-primary:           #428bca;
-@brand-success:           #5cb85c;
-@brand-warning:           #f0ad4e;
-@brand-danger:            #d9534f;
-@brand-info:              #5bc0de;
+@brand-primary: #428bca;
+@brand-success: #5cb85c;
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+@brand-info:    #5bc0de;
+{% endhighlight %}
+
+  <p>Use any of these color variables as they are or reassign them to more meaningful variables for your project.</p>
+{% highlight css linenos %}
+// Use as-is
+.masthead {
+  ...
+  background-color: @brand-primary;
+  ...
+}
+
+// Reassigned variables in LESS
+@alert-message-background: @brand-info;
+.alert {
+  background-color: @brand-info;
+}
 {% endhighlight %}
 
 
-  <h3 id="links">Links</h3>
+
+  <h3 id="variables-links">Links</h3>
   <p>Easily style your links with the right color with only one value.</p>
 {% highlight css linenos %}
 // Links
-@linkColor:         #8b59c2;
-@linkColorHover:    darken(@linkColor, 10);
+@link-color:       @brand-primary;
+@link-color-hover: darken(@link-color, 15%);
 {% endhighlight %}
-  <p>Note that the <code>@linkColorHover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use darken, lighten, saturate, and desaturate.</p>
-  <h3 id="scheme">Color Scheme</h3>
-  <p>Get a jump on better color management within your code with these awesome variables. No more guessing hex values throughout a project.</p>
-{% highlight css linenos %}
-// Grays
-@white:             #fff;
-@grayLighter:       #ccc;
-@grayLight:         #777;
-@gray:              #555;
-@grayDark:          #333;
-@black:             #000;
+  <p>Note that the <code>@link-color-hover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use <code>darken</code>, <code>lighten</code>, <code>saturate</code>, and <code>desaturate</code>.</p>
 
-// Accent Colors
-@blue:              #08b5fb;
-@green:             #46a546;
-@red:               #9d261d;
-@yellow:            #ffc40d;
-@orange:            #f89406;
-@pink:              #c3325f;
-@purple:            #7a43b6;
-{% endhighlight %}
-      <h3 id="baseline">Baseline</h3>
-      <p>Though not fully utilized within Bootstrap, <code>@baseline</code> will help simplify your line-heights and vertical rhythm in any project.</p>
+  <h3 id="baseline">Baseline</h3>
+  <p>Though not fully utilized within Bootstrap, <code>@baseline</code> will help simplify your line-heights and vertical rhythm in any project.</p>
 {% highlight css linenos %}
 @baseline:          20px;
 {% endhighlight %}
-      <p>Using it is simple:</p>
+  <p>Using it is simple:</p>
 {% highlight css linenos %}
 div#exampleBlock {
   margin-bottom: @baseline * 2; // 40px
