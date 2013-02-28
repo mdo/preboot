@@ -55,36 +55,6 @@
 @headings-font-family:    inherit; // empty to use BS default, @font-family-base
 @headings-font-weight:    500;
 
-
-
-/* Variables
--------------------------------------------------- */
-/*
-// Links
-@linkColor:         #8b59c2;
-@linkColorHover:    darken(@linkColor, 10);
-
-// Grays
-@white:             #fff;
-@grayLighter:       #ccc;
-@grayLight:         #777;
-@gray:              #555;
-@grayDark:          #333;
-@black:             #000;
-
-// Accent Colors
-@blue:              #08b5fb;
-@green:             #46a546;
-@red:               #9d261d;
-@yellow:            #ffc40d;
-@orange:            #f89406;
-@pink:              #c3325f;
-@purple:            #7a43b6;
-
-// Baseline grid
-@baseline:          20px;
-*/
-
 // Griditude
 @gridColumns:       16;
 @gridColumnWidth:   40px;
@@ -119,27 +89,46 @@
 // Center-align a block level element
 .center-block {
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Sizing shortcuts
-.size(@height: 5px, @width: 5px) {
-  height: @height;
+.size(@width: 5px, @height: 5px) {
   width: @width;
+  height: @height;
 }
 .square(@size: 5px) {
   .size(@size, @size);
 }
 
-// Input placeholder text
-.placeholder(@color: @grayLight) {
-  :-moz-placeholder {
-    color: @color;
-  }
-  ::-webkit-input-placeholder {
-    color: @color;
-  }
+// Placeholder text
+.placeholder(@color: @input-color-placeholder) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
 }
+
+// Text overflow
+// Requires inline-block or block for proper styling
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// CSS image replacement
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+.hide-text() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+
 
 // Font Stacks
 #font {
@@ -379,91 +368,5 @@ table [class^="span"] {
     -moz-box-pack: @pack;
     -webkit-box-pack: @pack;
     box-pack: @pack;
-  }
-}
-
-// Based on Eric Meyers' reset 2.0 - http://meyerweb.com/eric/tools/css/reset/index.html
-// & the Compass Reset utility - http://compass-style.org/reference/compass/reset/utilities/
-#reset {
-  .global-reset {
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed,
-    figure, figcaption, footer, header, hgroup,
-    menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
-      #reset > .reset-box-model;
-      #reset > .reset-font;
-    }
-    body {
-      #reset > .reset-body;
-    }
-    ol, ul {
-      #reset > .reset-list-style;
-    }
-    table {
-      #reset > .reset-table;
-    }
-    caption, th, td {
-      #reset > .reset-table-cell;
-    }
-    q, blockquote {
-      #reset > .reset-quotation;
-    }
-    a img {
-      #reset > .reset-image-anchor-border;
-    }
-    #reset > .reset-html5;
-  }
-  .reset-box-model {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-  .reset-font {
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  .reset-focus {
-    outline: 0;
-  }
-  .reset-body {
-    line-height: 1;
-  }
-  .reset-list-style {
-    list-style: none;
-  }
-  .reset-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  .reset-table-cell {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
-  }
-  .reset-quotation {
-    quotes: none;
-    &:before, &:after {
-      content: "";
-      content: none;
-    }
-  }
-  .reset-image-anchor-border {
-    border: none;
-  }
-  .reset-html5 {
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section {
-      display: block;
-    }
   }
 }
