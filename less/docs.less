@@ -25,7 +25,7 @@ body {
 body {
   padding: 0;
   font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
   color: #555;
@@ -44,7 +44,7 @@ a {
 // Typography
 h1, h2, h3, h4, h5, h6 {
   margin: 30px 0 10px;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.2;
   color: #333;
 }
@@ -175,7 +175,6 @@ pre {
 .masthead {
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
-  background-attachment: fixed;
   #gradient > .vertical(darken(saturate(@purple, 10%), 15%), darken(@blue, 5%));
 }
 .masthead-inner {
@@ -242,17 +241,20 @@ pre {
 
 // Buttons
 .btn {
-  display: inline-block;
+  display: block;
+  margin-bottom: 5px;
   padding: 12px 18px;
   font-weight: 600;
   line-height: 1;
+  color: @purple;
+  text-align: center;
   letter-spacing: -1px;
   background-color: #fff;
-  color: @purple;
   border: 1px solid #ccc;
   border-radius: 5px;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: #fff;
     text-decoration: none;
     background-color: @purple;
@@ -261,12 +263,13 @@ pre {
 
   &:active {
     box-shadow: inset 0 3px 6px rgba(0,0,0,.3);
-    boder-color: darken(@purple, 10%);
+    border-color: darken(@purple, 10%);
   }
 }
 
 
-// Fixed masthead with larger viewports
+// Responsive
+
 @media screen and (min-width: 768px) {
   body {
     font-size: 18px;
@@ -277,6 +280,13 @@ pre {
   .lead {
     font-size: 24px;
   }
+
+  .btn {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+
   // Push over the container contents to make room
   .container {
     margin-left: 30%;
@@ -292,6 +302,7 @@ pre {
     left: 0;
     z-index: 5;
     width: 25%;
+    background-attachment: fixed;
   }
   // Generate a super slick shadow for depth
   .masthead:after {
