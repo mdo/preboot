@@ -7,7 +7,7 @@ layout: default
 <header class="masthead">
   <div class="masthead-inner">
     <h1 class="header-divider">Preboot</h1>
-    <p class="lead">A collection of LESS mixins and variables for writing better CSS.</p>
+    <p>A collection of LESS mixins and variables for writing better CSS.</p>
     <p><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.markdotto.com/2011/03/21/introducing-bootstrap/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
   </div>
 </header>
@@ -16,7 +16,7 @@ layout: default
 
 <section id="introduction">
   <h2 class="header-divider">Introducing Preboot</h2>
-  <p>Preboot is a comprehensive and flexible collection of LESS utilities. Prior to open-sourcing <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, this project donned the same name. Since then it continues to be only a powerful collection of LESS variables and mixins with no interface components.</p>
+  <p class="lead">Preboot is a comprehensive and flexible collection of LESS utilities. Prior to open-sourcing <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, this project donned the same name. Since then it continues to be only a powerful collection of LESS variables and mixins with no interface components.</p>
   <p>Need something more powerful? Use <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>.</p>
   <p>
     <a href="http://github.com/mdo/preboot/master/zipball" class="btn">Download Preboot 2</a>
@@ -28,7 +28,7 @@ layout: default
 
 <section id="table-of-contents">
   <h2 class="header-divider">What's included</h2>
-  <p>Here's the rundown of what you can find in Preboot. Peruse or jump right to a section for some lightweight documentation and code snippets.</p>
+  <p class="lead">Here's the rundown of what you can find in Preboot. Jump to a section for some lightweight documentation and code snippets.</p>
   <div class="row">
     <div class="grid-4">
       <h3>Variables</h3>
@@ -75,7 +75,7 @@ layout: default
 
 <section>
   <h2 class="header-divider" id="variables">Variables</h2>
-  <p>Variables still don't exist in CSS, but they do in LESS and other CSS preprocessors. Preboot includes a several groups of meaningful and useful variables for any project.</p>
+  <p class="lead">Variables still don't exist in CSS, but they do in LESS and other CSS preprocessors. Preboot includes a several groups of meaningful and useful variables for any project.</p>
 
   <h3 id="variables-color">Colors</h3>
   <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to semantic values.</p>
@@ -197,7 +197,7 @@ a {
 
 <section id="mixins">
   <h2 class="header-divider">Vendor mixins</h2>
-  <p>Write more efficient CSS by writing single-line mixins instead of multiple lines of prefixed properties.</p>
+  <p class="lead">Write more efficient CSS by writing single-line mixins instead of multiple lines of prefixed properties.</p>
 
   <h3 id="mixins-box-sizing">Box-sizing</h3>
   <p>Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">helpful article from Mozilla</a>.</p>
@@ -366,7 +366,7 @@ a {
 {% highlight css linenos %}
 #gradient > .striped(#333, #000, 45deg);
 {% endhighlight %}
-  <p>Two colors not enough? Go hog wild and add another color into the mix. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color.</p>
+  <p>Up the ante and use three colors instead. Set the first color, the second color, the second color's color stop (a decimal value like 0.25), and the third color with these mixins:</p>
 {% highlight css linenos %}
 #gradient > .vertical-three-colors(#777, #333, .25, #000);
 #gradient > .horizontal-three-colors(#777, #333, .25, #000);
@@ -378,11 +378,24 @@ a {
 
 <section>
   <h2 class="header-divider">Utility mixins</h2>
-  <p>Similar to vendor mixins, utility mixins provide useful often-repeated snippets of CSS.</p>
+  <p class="lead">Similar to vendor mixins, utility mixins provide useful and often repeated snippets of CSS in single lines.</p>
 
   <h3 id="mixins-clearfix">Clearfix</h3>
   <p>Forget adding <code>class="clearfix"</code> to any element and instead add the <code>.clearfix()</code> mixin where appropriate. Uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">micro clearfix</a> from <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallager</a>.</p>
 {% highlight css linenos %}
+// Mixin
+.clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Usage
 .container {
   .clearfix();
 }
