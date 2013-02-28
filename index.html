@@ -92,7 +92,7 @@ layout: default
   <p class="lead">Variables still don't exist in CSS, but they do in LESS and other CSS preprocessors. Preboot includes a several groups of meaningful and useful variables for any project.</p>
 
   <h3 id="variables-colors">Colors</h3>
-  <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to semantic values.</p>
+  <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to meaningful values.</p>
   <div class="color-swatches">
     <div class="color-swatch black-10"></div>
     <div class="color-swatch black-20"></div>
@@ -105,7 +105,6 @@ layout: default
     <div class="color-swatch black-90"></div>
   </div>
 {% highlight css linenos %}
-// Grayscale
 @black-10: darken(#fff, 10%);
 @black-20: darken(#fff, 20%);
 @black-30: darken(#fff, 30%);
@@ -125,7 +124,6 @@ layout: default
     <div class="color-swatch brand-info"></div>
   </div>
 {% highlight css linenos %}
-// Semantic branding colors
 @brand-primary: #428bca;
 @brand-success: #5cb85c;
 @brand-warning: #f0ad4e;
@@ -160,12 +158,11 @@ layout: default
   <h3 id="variables-links">Links</h3>
   <p>Easily style your links with the right color with only one value.</p>
 {% highlight css linenos %}
-// Links
+// Variables
 @link-color:       @brand-primary;
 @link-color-hover: darken(@link-color, 15%);
-{% endhighlight %}
-{% highlight css linenos %}
-// Set link colors
+
+// Usage
 a {
   color: @link-color;
   text-decoration: none;
@@ -179,7 +176,7 @@ a {
   <p>Note that the <code>@link-color-hover</code> uses a function, another awesome tool from LESS, to automagically create the right hover color. You can use <code>darken</code>, <code>lighten</code>, <code>saturate</code>, and <code>desaturate</code>.</p>
 
   <h3 id="variables-typography">Typography</h3>
-  <p>Easily set your font face, text size, leading, and more with a few quick variables. Preboot makes use of these as well to provide easy typographic mixins as well.</p>
+  <p>Easily set your type face, text size, leading, and more with a few quick variables. Preboot makes use of these as well to provide easy typographic mixins as well.</p>
 {% highlight css linenos %}
 // Typography
 
