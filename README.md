@@ -8,7 +8,7 @@ Preboot is a collection of LESS mixins and variables for quickly writing CSS. As
 Preboot requires [LESS](http://lesscss.org). Head over to their documentation and familiarize yourself with the project. Once you're up and running, including and using Preboot is a breeze.
 
 1. Create a new LESS file (e.g., application.less)
-2. Include Preboot via `@import: "preboot.less"`
+2. Include Preboot via `@import "preboot.less";`
 3. Start writing your own LESS-flavored CSS
 
 We highly recommend using Preboot in conjunction with [Normalize](http://necolas.github.com/normalize.css), a powerful tool for more consistent rendering of web components across various browsers and devices.
