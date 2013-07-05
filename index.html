@@ -48,6 +48,7 @@ layout: default
         <li><a href="#variables-scaffolding">Scaffolding</a></li>
         <li><a href="#variables-links">Links</a></li>
         <li><a href="#variables-typography">Typography</a></li>
+        <li><a href="#variables-cache-busting">Cache busting</a></li>
       </ul>
       <h3><a href="#grid-system">Grid system</a></h3>
       <ul class="toc">
@@ -79,6 +80,7 @@ layout: default
         <li><a href="#mixins-resizable">Textarea resize</a></li>
         <li><a href="#mixins-truncating">Truncating text</a></li>
         <li><a href="#mixins-retina-images">Retina images</a></li>
+        <li><a href="#mixins-font-faces">Font faces</a></li>
       </ul>
     </div>
   </div>
@@ -198,6 +200,19 @@ a {
 // Enable the option to customize headings
 @headings-font-family:    inherit; // From @font-family-base
 @headings-font-weight:    500;
+{% endhighlight %}
+
+  <h3 id="variables-cache-busting">Cache busting</h3>
+  <p>A variable for cache busting externals.</p>
+{% highlight css linenos %}
+// Cache busting
+@cache-buster:            ~`"?" + Math.floor(Math.random() * 10000)`;
+
+// Usage
+background-image: e(%("url(image.jpg%d)", @cache-buster));
+
+// Result
+background-image: url(image.jpg?4855);
 {% endhighlight %}
 </section>
 
@@ -573,6 +588,39 @@ a {
 .jumbotron {
   .retina-image("/img/bg-1x.png", "/img/bg-2x.png", 100px, 100px);
 }
+{% endhighlight %}
+
+  <h3 id="mixins-font-faces">Font-faces</h3>
+  <p>Specify the family, filename and path of the font files. Specify weight and style to combine multiple files in one family. <strong>To prevent reloads after each compile, set the cache buster to a fixed value.</strong></p>
+{% highlight css linenos %}
+// Mixin
+.font-face(@family, @filename, @filepath, @weight: normal, @style: normal) {
+  @font-eot:    e(%("%d%d.eot%d", @filepath, @filename, @cache-buster));
+  @font-eot-ie: e(%("%d%d.eot%d#iefix", @filepath, @filename, @cache-buster));
+  @font-woff:   e(%("%d%d.woff%d", @filepath, @filename, @cache-buster));
+  @font-ttf:    e(%("%d%d.ttf%d", @filepath, @filename, @cache-buster));
+  @font-svg:    e(%("%d%d.svg%d#%d", @filepath, @filename, @cache-buster, @filename));
+
+  @font-face {
+    font-family: '@{family}';
+    src: url('@{font-eot}');
+    src: url('@{font-eot-ie}') format('embedded-opentype'),
+         url('@{font-svg}')    format('svg'),
+         url('@{font-woff}')   format('woff'),
+         url('@{font-ttf}')    format('truetype');
+    font-weight:  @weight;
+    font-style:   @style;
+  }
+}
+
+// Usage
+.font-face(e('Font'), font-regular, e('@{font-path}/'));
+.font-face(e('Font'), font-italic, e('@{font-path}/'), normal, italic);
+.font-face(e('Font'), font-bold, e('@{font-path}/'), bold);
+.font-face(e('Font'), font-bolditalic, e('@{font-path}/'), bold, italic);
+
+font-family: 'Glyphicons Halflings';
+font-style: italic;
 {% endhighlight %}
 </section>
 

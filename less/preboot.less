@@ -61,6 +61,9 @@
 @grid-column-padding:   15px; // Left and right inner padding
 @grid-float-breakpoint: 768px;
 
+// Cache busting
+@cache-buster:            ~`"?" + Math.floor(Math.random() * 10000)`;
+
 
 
 //
@@ -398,5 +401,27 @@
   only screen and (                min-resolution: 2dppx) {
     background-image: url("@{file-2x}");
     background-size: @width-1x @height-1x;
+  }
+}
+
+// Font-faces
+//
+// Generate font-face declarations with cache busting support
+.font-face(@family, @filename, @filepath, @weight: normal, @style: normal) {
+  @font-eot:    e(%("%d%d.eot%d", @filepath, @filename, @cache-buster));
+  @font-eot-ie: e(%("%d%d.eot%d#iefix", @filepath, @filename, @cache-buster));
+  @font-woff:   e(%("%d%d.woff%d", @filepath, @filename, @cache-buster));
+  @font-ttf:    e(%("%d%d.ttf%d", @filepath, @filename, @cache-buster));
+  @font-svg:    e(%("%d%d.svg%d#%d", @filepath, @filename, @cache-buster, @filename));
+
+  @font-face {
+    font-family: '@{family}';
+    src: url('@{font-eot}');
+    src: url('@{font-eot-ie}') format('embedded-opentype'),
+         url('@{font-svg}')    format('svg'),
+         url('@{font-woff}')   format('woff'),
+         url('@{font-ttf}')    format('truetype');
+    font-weight:  @weight;
+    font-style:   @style;
   }
 }
