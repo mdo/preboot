@@ -91,7 +91,7 @@ layout: default
   <p class="lead">Variables still don't exist in CSS, but they do in LESS and other CSS preprocessors. Preboot includes a several groups of meaningful and useful variables for any project.</p>
 
   <h3 id="variables-colors">Colors</h3>
-  <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic include various colors assigned to meaningful values.</p>
+  <p>Easily make use of two color schemes included in Preboot: grayscale and semantic. Grayscale colors provide quick access to shades of black (in increments of 10%) while semantic includes various colors assigned to meaningful values.</p>
   <div class="color-swatches">
     <div class="color-swatch black-10"></div>
     <div class="color-swatch black-20"></div>
@@ -205,7 +205,7 @@ a {
 
 <section id="grid-system">
   <h2 class="header-divider">Grid system</h2>
-  <p class="lead">Generate semantic, mobile-first grid layouts with a few variables and mixins, all without superflous markup.</p>
+  <p class="lead">Generate semantic, mobile-first grid layouts with a few variables and mixins, all without superfluous markup.</p>
 
   <h3 id="grid-variables">Grid variables</h3>
   <p>There are three grid variables that Preboot uses to power the grid mixins.</p>
@@ -282,7 +282,7 @@ a {
   .make-column-offset(1);
 }
 {% endhighlight %}
-  <p><strong>Need another example?</strong> Our table of contents at the top of the page uses a custom grid as well. In the source docs.less file you'll find it's super lightweight implementation:</p>
+  <p><strong>Need another example?</strong> Our table of contents at the top of the page uses a custom grid as well. In the source docs.less file you'll find its super lightweight implementation:</p>
 {% highlight css linenos %}
 .row { .make-row(); }
 .grid-4 { .make-column(4); }
@@ -328,7 +328,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-box-shadow">Box (Drop) shadows</h3>
-  <p>If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on it's own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use of the mixin to pick up the required <code>-webkit</code> prefix.</p>
+  <p>If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on its own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use the mixin to pick up the required <code>-webkit</code> prefix.</p>
   <p>Be sure to use RGBA colors in your box shadows so they blend as seamlessly as possible with backgrounds.</p>
 {% highlight css linenos %}
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
@@ -361,7 +361,7 @@ a {
 {% endhighlight %}
 
   <h3 id="mixins-transformations">Transformations</h3>
-  <p>Rorate, scale, translate (move), or skew any object.</p>
+  <p>Rotate, scale, translate (move), or skew any object.</p>
 {% highlight css linenos %}
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
@@ -457,7 +457,7 @@ a {
 #gradient > .vertical-three-colors(#777, #333, .25, #000);
 #gradient > .horizontal-three-colors(#777, #333, .25, #000);
 {% endhighlight %}
-  <p><strong>Heads up!</strong> Should you ever need to remove a gradient, be sure to remove any IE-specific <code>filter</code> you may have added. You can do that by using <code>.reset-filter()</code> mixin alignside <code>background-image: none;</code>.</p>
+  <p><strong>Heads up!</strong> Should you ever need to remove a gradient, be sure to remove any IE-specific <code>filter</code> you may have added. You can do that by using <code>.reset-filter()</code> mixin alongside <code>background-image: none;</code>.</p>
 </section>
 
 
