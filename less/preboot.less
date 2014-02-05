@@ -321,6 +321,14 @@
     background-image: -o-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
   }
+  .horizontal-any( @args, @angle: -180deg, @base-color: transparent ) {
+    background: @base-color;
+    background: -moz-linear-gradient(@angle, ~'@{args}');
+    background: -webkit-linear-gradient( @angle, ~'@{args}' );
+    background: -o-linear-gradient(@angle, ~'@{args}');
+    background: -ms-linear-gradient(@angle, ~'@{args}');
+    background: linear-gradient(@angle, ~'@{args}');
+  }
 }
 
 // Reset filters for IE
