@@ -404,3 +404,61 @@
     background-size: @width-1x @height-1x;
   }
 }
+
+// Expanded Target Area
+//
+// For touch devices where you need your element to have
+// an expanded target hit area
+// // For an expanded target hit area
+
+// .expanded-target(10px);
+.expanded-target(@top, @right: null, @bottom: null, @left: null) when (@right = null) {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: ' ';
+    top: -@top;
+    right: -@top;
+    bottom: -@top;
+    left: -@top;
+  }
+}
+
+// .expanded-target(10px, 0);
+.expanded-target(@top, @right: null, @bottom: null, @left: null) when not (@right = null) and (@bottom = null) {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: ' ';
+    top: -@top;
+    right: -@right;
+    bottom: -@top;
+    left: -@right;
+  }
+}
+
+// .expanded-target(10px, 0, 20px);
+.expanded-target(@top, @right: null, @bottom: null, @left: null) when not (@bottom = null) and (@left = null) {
+    position: relative;
+  &:after {
+    position: absolute;
+    content: ' ';
+    top: -@top;
+    right: -@right;
+    bottom: -@bottom;
+    left: -@right;
+  }
+}
+
+// .expanded-target(10px, 0, 20px, 5px);
+.expanded-target(@top, @right: null, @bottom: null, @left: null) when not (@left = null) {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: ' ';
+    top: -@top;
+    right: @right;
+    bottom: -@bottom;
+    left: -@left;
+  }
+}
