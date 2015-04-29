@@ -75,8 +75,8 @@
   // Then clear the floated columns
   .clearfix();
 }
-.make-column(@columns) {
-  @media (min-width: @grid-float-breakpoint) {
+.make-column(@columns, @screen-width: @grid-float-breakpoint) {
+  @media (min-width: @screen-width) {
     float: left;
     // Calculate width based on number of columns available
     width: percentage(@columns / @grid-columns);
@@ -89,8 +89,8 @@
   // Proper box-model (padding doesn't add to width)
   .box-sizing(border-box);
 }
-.make-column-offset(@columns) {
-  @media (min-width: @grid-float-breakpoint) {
+.make-column-offset(@columns, @screen-width: @grid-float-breakpoint) {
+  @media (min-width: @screen-width) {
     margin-left: percentage(@columns / @grid-columns);
   }
 }
