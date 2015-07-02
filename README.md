@@ -1,15 +1,15 @@
-# [Preboot 2](http://getpreboot.com)
+# [Preboot 3](http://getpreboot.com)
 
-Preboot is a collection of LESS mixins and variables for quickly writing CSS. As the precursor to [Bootstrap](http://getbootstrap.com), it serves as a lightweight and interface agnostic approach to jumpstarting your next web project. Use it how you see fit.
+Preboot is a collection of Sass mixins and variables for quickly writing CSS. As the original precursor to [Bootstrap](http://getbootstrap.com), it serves as a lightweight and interface agnostic approach to jumpstarting your next web project. Use it how you see fit.
 
 
 ## Getting started
 
-Preboot requires [LESS](http://lesscss.org). Head over to their documentation and familiarize yourself with the project. Once you're up and running, including and using Preboot is a breeze.
+Preboot requires [Sass](http://sass-lang.com). Head over to their documentation and familiarize yourself with the project. Once you're up and running, including and using Preboot is a breeze.
 
-1. Create a new LESS file (e.g., application.less)
-2. Include Preboot via `@import "preboot.less";`
-3. Start writing your own LESS-flavored CSS
+1. Create a new Sass file (e.g., `application.scss`)
+2. Copy or import the Preboot partial, [`_preboot.scss`](https://github.com/mdo/preboot/blob/gh-pages/_sass/_preboot.scss).
+3. Start writing your own Sass.
 
 We highly recommend using Preboot in conjunction with [Normalize](http://necolas.github.com/normalize.css), a powerful tool for more consistent rendering of web components across various browsers and devices.
 
