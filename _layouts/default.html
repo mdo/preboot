@@ -7,15 +7,35 @@
     <link href="http://gmpg.org/xfn/11" rel="profile">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro">
-    <link rel="stylesheet" href="/css/docs-compiled.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,500">
+    <link rel="stylesheet" href="{{ site.baseurl }}/preboot.css">
 
     <title>Preboot</title>
   </head>
 
   <body>
 
-    {{ content }}
+    <header class="masthead">
+      <div class="container">
+        <h1>Preboot</h1>
+        <p>A collection of Sass mixins and variables from <a href="http://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+        <a class="btn-reverse" href="https://github.com/mdo/preboot/archive/master.zip">Download Preboot</a>
+        <a class="btn-reverse" href="https://github.com/mdo/preboot">View project on GitHub</a>
+        <p class="social-buttons">
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=mdo&repo=preboot&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=mdo&repo=preboot&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://getpreboot.com/" data-count="horizontal" data-via="mdo">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      {{ content }}
+
+      <div class="footer">
+        &lt;3
+      </div>
+    </div>
 
     <script type="text/javascript">
       var _gauges = _gauges || [];

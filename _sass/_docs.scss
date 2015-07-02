@@ -1,0 +1,287 @@
+/*!
+ * Preboot v2 Docs
+ * Styles for presenting Preboot features and benefits.
+ */
+
+
+//
+// Docs
+//
+
+html {
+  font-size: 16px;
+
+  @media (min-width: 30em) {
+    font-size: 18px;
+  }
+}
+
+body {
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #555;
+  background-color: #fff;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 2rem 0 .5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #333;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+
+  + p {
+    font-size: 1.25rem;
+    color: $black-40;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+
+  a, a:hover {
+    color: inherit;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 500;
+}
+
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+// Inline and block code styles
+code,
+pre {
+  padding: .1rem .25rem;
+  color: #333;
+  border-radius: .25rem;
+}
+
+// Inline code
+code {
+  padding: .1rem .25rem;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    color: inherit;
+    white-space: pre;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+// Pygments
+.highlight {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  line-height: 20px; // Pygments hates unitless line-height for some reason
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: .25rem;
+  // For some reason, line numbers aren't rendering when pushed to gh-pages
+  // box-shadow: inset 45px 0 0 #fbfbfc, inset 46px 0 0 #ececf0;
+}
+.highlight pre {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  // font-size: 16px;
+  background-color: transparent;
+  border: 0;
+}
+.highlight pre .lineno {
+  display: inline-block;
+  width: 1.25rem;
+  padding-right: .25rem;
+  margin-right: .75rem;
+  text-align: right;
+  color: #bebec5;
+}
+
+// Layout
+.container {
+  padding-left:  $grid-column-padding;
+  padding-right: $grid-column-padding;
+  @include make-container;
+}
+
+// header
+.masthead {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
+  margin-bottom: 3rem;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  background-image: linear-gradient(darken(saturate(#7a43b6, 10%), 15%), darken(#08b5fb, 5%));
+
+  &:after {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: 0;
+    left: -20px;
+    display: block;
+    content: " ";
+    box-shadow: inset -5px 0 25px rgba(0,0,0,.3);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    margin-top: 0;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+
+  a {
+    font-weight: 500;
+    color: #fff;
+
+    &:hover {
+      text-decoration: none;
+      text-shadow: 0 0 8px rgba(255,255,255,.5);
+    }
+  }
+}
+
+.social-buttons {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#markdown-toc {
+  > li:first-child,
+  > li:first-child + li {
+    display: none;
+  }
+}
+
+.color-swatches {
+  margin: 0 -5px 20px;
+  @include clearfix;
+}
+
+.color-swatch {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  margin: .25rem;
+
+  &.black-10 { background-color: $black-10; }
+  &.black-20 { background-color: $black-20; }
+  &.black-30 { background-color: $black-30; }
+  &.black-40 { background-color: $black-40; }
+  &.black-50 { background-color: $black-50; }
+  &.black-60 { background-color: $black-60; }
+  &.black-70 { background-color: $black-70; }
+  &.black-80 { background-color: $black-80; }
+  &.black-90 { background-color: $black-90; }
+
+  &.brand-primary { background-color: $brand-primary; }
+  &.brand-success { background-color: $brand-success; }
+  &.brand-warning { background-color: $brand-warning; }
+  &.brand-danger  { background-color: $brand-danger; }
+  &.brand-info    { background-color: $brand-info; }
+}
+
+@mixin make-button($accent, $border, $hover-color) {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin-top:    .5rem;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: $accent;
+  text-align: center;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid $border;
+  border-radius: .25rem;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $hover-color;
+    text-decoration: none;
+    background-color: $accent;
+    border-color: $accent;
+  }
+
+  &:active {
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.25);
+  }
+
+  @media (min-width: 30em) {
+    display: inline-block;
+  }
+}
+
+.btn {
+  @include make-button(#7a43b6, #ccc, #fff);
+}
+
+.btn-reverse {
+  @include make-button(#fff, rgba(255,255,255,.25), darken(#08b5fb, 5%));
+}

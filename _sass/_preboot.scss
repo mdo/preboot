@@ -1,0 +1,226 @@
+/*!
+ * Preboot v2
+ *
+ * Open sourced under MIT license by $mdo.
+ * Some variables and mixins from Bootstrap (Apache 2 license).
+ */
+
+
+//
+// Variables
+// --------------------------------------------------
+
+// Grayscale
+$black-10:                 darken(#fff, 10%);
+$black-20:                 darken(#fff, 20%);
+$black-30:                 darken(#fff, 30%);
+$black-40:                 darken(#fff, 40%);
+$black-50:                 darken(#fff, 50%);
+$black-60:                 darken(#fff, 60%);
+$black-70:                 darken(#fff, 70%);
+$black-80:                 darken(#fff, 80%);
+$black-90:                 darken(#fff, 90%);
+
+// Brand colors
+$brand-primary:           #428bca;
+$brand-success:           #5cb85c;
+$brand-warning:           #f0ad4e;
+$brand-danger:            #d9534f;
+$brand-info:              #5bc0de;
+
+// Scaffolding
+$body-background:         #fff;
+$text-color:              $black-50;
+
+// Links
+$link-color:              $brand-primary;
+$link-color-hover:        darken($link-color, 15%);
+
+// Typography
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+$font-family-base:        $font-family-sans-serif;
+
+$font-size-base:          14px;
+$font-size-large:         $font-size-base * 1.25; // ~18px
+$font-size-small:         $font-size-base * 0.85; // ~12px
+$font-size-mini:          $font-size-base * 0.75; // ~11px
+
+$line-height-base:        1.4;
+
+$headings-font-family:    inherit; // empty to use BS default, $font-family-base
+$headings-font-weight:    500;
+
+// Forms
+$input-color-placeholder: lighten($text-color, 25%);
+
+// Grid
+// Used with the grid mixins below
+$grid-columns:          12;
+$grid-column-padding:   1rem; // Left and right inner padding
+$container-width:       40rem;
+$grid-float-breakpoint: 768px;
+
+
+
+//
+// Grid system
+// --------------------------------------------------
+
+@mixin make-container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $container-width;
+}
+
+@mixin make-row {
+  // Negative margin the row out to align the content of columns
+  margin-left: -$grid-column-padding;
+  margin-right: -$grid-column-padding;
+  // Then clear the floated columns
+  @include clearfix;
+}
+
+@mixin make-column($columns) {
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
+    // Calculate width based on number of columns available
+    width: percentage($columns / $grid-columns);
+  }
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Set inner padding as gutters instead of margin
+  padding-left: $grid-column-padding;
+  padding-right: $grid-column-padding;
+  @include border-box;
+}
+
+@mixin make-column-offset($columns) {
+  @media (min-width: $grid-float-breakpoint) {
+    margin-left: percentage($columns / $grid-columns);
+  }
+}
+
+
+
+//
+// Mixins: vendor shorthand
+// --------------------------------------------------
+
+// Border box
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+   border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+
+// Placeholder text
+@mixin placeholder($color: $input-color-placeholder) {
+  &:-moz-placeholder            { color: $color; } // Firefox 4-18
+  &::-moz-placeholder           { color: $color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+// Resize anything
+@mixin resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Safari fix
+}
+
+// CSS3 Content Columns
+@mixin content-columns($width, $count, $gap) {
+  -webkit-column-width: $width;
+     -moz-column-width: $width;
+          column-width: $width;
+  -webkit-column-count: $count;
+     -moz-column-count: $count;
+          column-count: $count;
+  -webkit-column-gap: $gap;
+     -moz-column-gap: $gap;
+          column-gap: $gap;
+}
+
+
+//
+// Mixins: utilities
+// --------------------------------------------------
+
+// Clearfix
+//
+// Clears floats via mixin (avoid using as a class).
+
+@mixin clearfix {
+  &:before {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+// Center-align a block level element
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Sizing shortcuts
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Text overflow
+//
+// Requires inline-block or block for proper styling
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Retina images
+//
+// Retina background-image support with non-retina fall back
+@mixin retina-image($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url("${file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("${file-2x}");
+    background-size: $width-1x $height-1x;
+  }
+}
